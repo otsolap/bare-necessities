@@ -1,19 +1,28 @@
 
 import './FitnessApp.css';
-import { theme } from './theme/index.js'
 import Navbar from './components/Navbar';
 import Footer from './components/Footer'
-import { ThemeProvider } from '@mui/material/styles'
 
+function FitnessApp() {
+  const initialWorkouts = [
+    {
+      workout: {
+        id: 1,
+        day: "Monday",
+        type: "Legs",
+        exercises: [{ id: 11, move: "Squat", repsOne: "numbahs", completed: false }],
+        WorkoutCompleted: false
+      }
+    }
+  ]
 
-function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <div>
       <Navbar />
       <p>Hello</p>
       <Footer />
-    </ThemeProvider>
+    </div>
   );
 }
 
-export default App;
+export default FitnessApp;
