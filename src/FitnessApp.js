@@ -10,7 +10,14 @@ function FitnessApp() {
         id: 1,
         day: "Monday",
         type: "Legs",
-        exercises: [{ id: 11, move: "Squat", repsOne: "numbahs", completed: false }],
+        exercises: [{
+          id: 11,
+          move: "Squat",
+          repsOne: "numbahs",
+          exerciseVideo: "link",
+          exerciseImg: "link",
+          completed: false
+        }],
         WorkoutCompleted: false
       }
     }
