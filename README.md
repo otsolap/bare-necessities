@@ -13,6 +13,13 @@ List of Workouts that you can add, delete, remove, edit and read.
 
 #### Long-term planning
 
+Refactor:
+
+- Redo Workout Day && Type into Select options.
+- Refactor LocalStorage to MERN-stack.
+
+New Features:
+
 - Motivational Quotation for the day.
 - Calender
 - Daily goals.

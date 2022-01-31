@@ -1,32 +1,21 @@
 
 import './FitnessApp.css';
 import Navbar from './components/Navbar';
+import { WorkoutsProvider } from './contexts/workouts.context';
+import WorkoutForm from './components/WorkoutForm';
+import WorkoutList from './components/WorkoutList';
 import Footer from './components/Footer'
 
 function FitnessApp() {
-  const initialWorkouts = [
-    {
-      workout: {
-        id: 1,
-        day: "Monday",
-        type: "Legs",
-        exercises: [{
-          id: 11,
-          move: "Squat",
-          repsOne: "numbahs",
-          exerciseVideo: "link",
-          exerciseImg: "link",
-          completed: false
-        }],
-        WorkoutCompleted: false
-      }
-    }
-  ]
+
 
   return (
     <div>
       <Navbar />
-      <p>Hello</p>
+      <WorkoutsProvider>
+        <WorkoutForm />
+        <WorkoutList />
+      </WorkoutsProvider>
       <Footer />
     </div>
   );
