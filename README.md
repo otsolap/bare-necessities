@@ -15,7 +15,7 @@ List of Workouts that you can add, delete, remove, edit and read.
 
 Refactor:
 
-- Redo Workout Day && Type into Select options.
+- Redo Workout Day && Type into React-Bootstrap Form-Select options.
 - Refactor LocalStorage to MERN-stack.
 
 New Features:

@@ -1,5 +1,6 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
+import ExerciseForm from './ExerciseForm';
 import useInputState from '../hooks/useInputState'
 import { DispatchContext } from '../contexts/workouts.context';
 import Container from 'react-bootstrap/Container'
@@ -9,15 +10,16 @@ import Button from 'react-bootstrap/Button'
 
 
 export default function WorkoutForm() {
-    const [value, handleChange, reset] = useInputState("")
+    const [handleChange, reset] = useInputState("")
     const dispatch = useContext(DispatchContext)
+    const { dayRef, typeRef } = useRef();
 
     function handleSubmit(e) {
         e.preventDefault();
         dispatch({
-            type: "ADD",
-            workoutDay: value,
-            workoutType: value
+            type: "ADD_WORKOUT",
+            workoutDay: dayRef.current.value,
+            workoutType: typeRef.current.value
         })
         reset();
     }
@@ -29,7 +31,7 @@ export default function WorkoutForm() {
                     <Form.Label>
                         Add Workout
                     </Form.Label>
-                    <Form.Group>
+                    <Form.Group controlId="workoutDay">
                         <Form.Label>
                             Day
                         </Form.Label>
@@ -37,12 +39,12 @@ export default function WorkoutForm() {
                             required
                             controlId="workoutDay"
                             name="workoutDay"
-                            value={value}
+                            ref={dayRef}
                             onChange={handleChange}
                             className='mb-1'
                         />
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group controlId="workoutType">
                         <Form.Label>
                             Workout type
                         </Form.Label>
@@ -50,11 +52,12 @@ export default function WorkoutForm() {
                             controlId="workoutType"
                             required
                             name="workoutType"
-                            value={value}
+                            ref={typeRef}
                             onChange={handleChange}
                             className="mb-1"
                         />
                     </Form.Group>
+                    <ExerciseForm />
                     <Button
                         variant="success"
                         className="mt-1"

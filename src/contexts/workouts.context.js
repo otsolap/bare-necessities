@@ -10,9 +10,9 @@ const initialWorkouts = [
         exercises: [{
             id: 11,
             move: "Squat",
-            repsOne: "numbahs",
-            video: "link",
-            image: "link",
+            reps: "3 x 10-15",
+            link: "",
+            image: "",
             completed: false
         }],
         workoutDone: false
