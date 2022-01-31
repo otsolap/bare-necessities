@@ -12,7 +12,8 @@ import Button from 'react-bootstrap/Button'
 export default function WorkoutForm() {
     const [handleChange, reset] = useInputState("")
     const dispatch = useContext(DispatchContext)
-    const { dayRef, typeRef } = useRef();
+    const dayRef = useRef();
+    const typeRef = useRef();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -27,7 +28,7 @@ export default function WorkoutForm() {
     return (
         <Container>
             <Row>
-                <Form onSubmit={handleSubmit}>
+                <Form id="workout-form" onSubmit={handleSubmit}>
                     <Form.Label>
                         Add Workout
                     </Form.Label>
@@ -57,15 +58,18 @@ export default function WorkoutForm() {
                             className="mb-1"
                         />
                     </Form.Group>
-                    <ExerciseForm />
+                </Form>
+                <ExerciseForm />
+                <div>
                     <Button
+                        form="workout-form"
                         variant="success"
                         className="mt-1"
                         type="submit"
                     >
                         Submit
                     </Button>
-                </Form>
+                </div>
             </Row>
         </Container>
     );

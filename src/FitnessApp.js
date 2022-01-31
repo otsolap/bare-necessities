@@ -17,7 +17,7 @@ function FitnessApp() {
         <WorkoutList />
       </WorkoutsProvider>
       <Footer />
-    </div>
+    </div >
   );
 }
 

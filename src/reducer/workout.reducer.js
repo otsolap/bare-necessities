@@ -14,7 +14,7 @@ const reducer = (state, action) => {
 
         case "ADD_EXERCISE":
             return [...state, {
-                // id: workoutID,
+                id: action.workoutId,
                 exercises: [{
                     id: uuidv4(),
                     move: action.move,
