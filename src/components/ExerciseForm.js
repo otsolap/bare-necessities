@@ -7,21 +7,19 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
-export default function ExerciseForm({ defaultWorkoutId }) {
+export default function ExerciseForm() {
     const [handleChange, reset] = useInputState("")
     const dispatch = useContext(DispatchContext)
     const moveRef = useRef()
     const repsRef = useRef()
     const imgRef = useRef()
     const linkRef = useRef()
-    const workoutRef = useRef()
 
     function handleSubmit(e) {
         e.stopPropagation()
         e.preventDefault();
         dispatch({
             type: "ADD_EXERCISE",
-            workoutId: workoutRef.current.value,
             move: moveRef.current.value,
             reps: repsRef.current.value,
             image: imgRef.current.value,
@@ -34,7 +32,6 @@ export default function ExerciseForm({ defaultWorkoutId }) {
         <Container>
             <Row>
                 <Form
-                    ref={workoutRef}
                     onSubmit={handleSubmit}>
                     <Form.Label>
                         Add Exercise
