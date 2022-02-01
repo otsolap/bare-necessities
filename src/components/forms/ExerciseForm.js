@@ -1,8 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import useInputState from '../../hooks/useInputState'
 import { WorkoutsContext, DispatchContext } from '../../contexts/workouts.context';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -18,7 +17,6 @@ export default function ExerciseForm() {
     const workoutIdRef = useRef()
 
     function handleSubmit(e) {
-        //   e.stopPropagation()
         e.preventDefault();
         dispatch({
             type: "ADD_EXERCISE",
@@ -32,86 +30,84 @@ export default function ExerciseForm() {
     }
 
     return (
-        <Container>
-            <Row>
-                <Form
-                    onSubmit={handleSubmit}>
+        <Modal>
+            <Form
+                onSubmit={handleSubmit}>
+                <Modal.Header>
+                    <Modal.Title>Add Exercise</Modal.Title>
+                </Modal.Header>
+                <Form.Group controlId="move">
                     <Form.Label>
-                        Add Exercise
+                        Move
                     </Form.Label>
-                    <Form.Group controlId="move">
-                        <Form.Label>
-                            Move
-                        </Form.Label>
-                        <Form.Control
-                            required
-                            controlId="move"
-                            name="move"
-                            ref={moveRef}
-                            onChange={handleChange}
-                            className='mb-1'
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="reps">
-                        <Form.Label>
-                            Rep range
-                        </Form.Label>
-                        <Form.Control
-                            required
-                            controlId="reps"
-                            name="reps"
-                            ref={repsRef}
-                            onChange={handleChange}
-                            className="mb-1"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="exerciseImg">
-                        <Form.Label>
-                            Image
-                        </Form.Label>
-                        <Form.Control
-                            controlId="exerciseImg"
-                            name="exerciseImg"
-                            ref={imgRef}
-                            onChange={handleChange}
-                            className="mb-1"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="exerciseLink">
-                        <Form.Label>
-                            Link
-                        </Form.Label>
-                        <Form.Control
-                            controlId="exerciseLink"
-                            name="exerciseLink"
-                            ref={linkRef}
-                            onChange={handleChange}
-                            className="mb-1"
-                        />
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Workout</Form.Label>
-                        <Form.Select
-                            ref={workoutIdRef}
-                        >
-                            {
-                                workouts.map(workout => (
-                                    <option key={workout.id} value={workout.id}>
-                                        {workout.workoutDay}
-                                    </option>
-                                ))
-                            }
-                        </Form.Select>
-                    </Form.Group>
-                    <Button
-                        variant="secondary"
-                        className="mt-1 mb-3"
-                        type="submit"
+                    <Form.Control
+                        required
+                        controlId="move"
+                        name="move"
+                        ref={moveRef}
+                        onChange={handleChange}
+                        className='mb-1'
+                    />
+                </Form.Group>
+                <Form.Group controlId="reps">
+                    <Form.Label>
+                        Rep range
+                    </Form.Label>
+                    <Form.Control
+                        required
+                        controlId="reps"
+                        name="reps"
+                        ref={repsRef}
+                        onChange={handleChange}
+                        className="mb-1"
+                    />
+                </Form.Group>
+                <Form.Group controlId="exerciseImg">
+                    <Form.Label>
+                        Image
+                    </Form.Label>
+                    <Form.Control
+                        controlId="exerciseImg"
+                        name="exerciseImg"
+                        ref={imgRef}
+                        onChange={handleChange}
+                        className="mb-1"
+                    />
+                </Form.Group>
+                <Form.Group controlId="exerciseLink">
+                    <Form.Label>
+                        Link
+                    </Form.Label>
+                    <Form.Control
+                        controlId="exerciseLink"
+                        name="exerciseLink"
+                        ref={linkRef}
+                        onChange={handleChange}
+                        className="mb-1"
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Workout</Form.Label>
+                    <Form.Select
+                        ref={workoutIdRef}
                     >
-                        Submit
-                    </Button>
-                </Form>
-            </Row>
-        </Container>
+                        {
+                            workouts.map(workout => (
+                                <option key={workout.id} value={workout.id}>
+                                    {workout.workoutDay}
+                                </option>
+                            ))
+                        }
+                    </Form.Select>
+                </Form.Group>
+                <Button
+                    variant="secondary"
+                    className="mt-1 mb-3"
+                    type="submit"
+                >
+                    Submit
+                </Button>
+            </Form>
+        </Modal>
     );
 }

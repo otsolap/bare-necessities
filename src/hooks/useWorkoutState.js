@@ -10,13 +10,6 @@ export default initialWorkouts => {
                 id: uuidv4(),
                 workoutDay: newWorkout.workoutDay,
                 workoutType: newWorkout.workoutType,
-                exercises: [{
-                    id: uuidv4(),
-                    move: newWorkout.move,
-                    reps: newWorkout.reps,
-                    link: newWorkout.link,
-                    image: newWorkout.image
-                }],
                 workoutDone: false
             }])
         },

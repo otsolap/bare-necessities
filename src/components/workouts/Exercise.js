@@ -5,9 +5,15 @@ import Form from 'react-bootstrap/Form'
 
 function Exercise({ id, complete, move, reps, link, image }) {
     const dispatch = useContext(DispatchContext)
+
+    function toggleExercise(e) {
+        e.stopPropagation()
+        dispatch({ type: "TOGGLE_EXERCISE", id: id })
+    }
+
     return (
         <Col md={12}>
-            {image.length ? <img src={image} alt={move} /> : ""}
+            {image ? <img src={image} alt={move} /> : ""}
             {link ?
                 <a href={link}><p><em>Move:</em>{move}</p></a>
                 : <p><em>Move:</em>{move}</p>
@@ -19,7 +25,7 @@ function Exercise({ id, complete, move, reps, link, image }) {
                     id={id}
                     label="Exercise Done"
                     checked={complete}
-                    onClick={() => dispatch({ type: "TOGGLE_EXERCISE", id: id })}
+                    onClick={toggleExercise}
                 />
             </Form>
         </Col>

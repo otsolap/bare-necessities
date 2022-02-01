@@ -9,22 +9,23 @@ function Workout({ id, completed, workoutType, workoutDay }) {
     const exercises = useContext(WorkoutsContext)
     const dispatch = useContext(DispatchContext)
 
-    const exerciseList = exercises.map(exercise => {
-        return (
-            <Exercise
-                {...exercise}
-                key={exercise.id}
-            />
-        )
-    })
-
+    function toggleExercise(e) {
+        e.stopPropagation()
+        dispatch({ type: "TOGGLE_EXERCISE", id: id })
+    }
 
     return (
         <Col md={12}>
             <em>Day:</em><p>{workoutDay}</p>
             <em>Type:</em><p>{workoutType}</p>
             <div>
-
+                {exercises.map(exercise => (
+                    <Exercise
+                        {...exercise}
+                        key={exercise.id}
+                    />
+                )
+                )}
             </div>
             <Form>
                 <Form.Check
@@ -32,7 +33,7 @@ function Workout({ id, completed, workoutType, workoutDay }) {
                     id={id}
                     label="Workout Done"
                     checked={completed}
-                    onClick={() => dispatch({ type: "TOGGLE_EXERCISE", id: id })}
+                    onClick={toggleExercise}
                 />
             </Form>
         </Col>

@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 import workoutReducer from '../reducer/workout.reducer'
 import useLocalStorageReducer from '../hooks/useLocalStorageReducer'
 
-const initialWorkouts = [
+const defaultWorkouts = [
     {
         id: 1,
         workoutDay: "Monday",
@@ -22,16 +22,13 @@ const initialWorkouts = [
 export const WorkoutsContext = createContext();
 export const DispatchContext = createContext();
 
-function getWorkoutExercises(workoutId) {
-    return exercises.filter(exercise => exercise.workoutId === workoutId)
-}
-
 export function WorkoutsProvider(props) {
     const [workouts, dispatch] = useLocalStorageReducer(
         "workouts",
-        initialWorkouts,
+        defaultWorkouts,
         workoutReducer
     )
+
     return (
         <WorkoutsContext.Provider value={workouts}>
             <DispatchContext.Provider value={dispatch}>
