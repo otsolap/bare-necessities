@@ -22,8 +22,16 @@ const initialWorkouts = [
 export const WorkoutsContext = createContext();
 export const DispatchContext = createContext();
 
+function getWorkoutExercises(workoutId) {
+    return exercises.filter(exercise => exercise.workoutId === workoutId)
+}
+
 export function WorkoutsProvider(props) {
-    const [workouts, dispatch] = useLocalStorageReducer("workouts", initialWorkouts, workoutReducer)
+    const [workouts, dispatch] = useLocalStorageReducer(
+        "workouts",
+        initialWorkouts,
+        workoutReducer
+    )
     return (
         <WorkoutsContext.Provider value={workouts}>
             <DispatchContext.Provider value={dispatch}>

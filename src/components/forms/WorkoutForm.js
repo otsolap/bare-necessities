@@ -1,8 +1,8 @@
 
 import React, { useContext, useRef } from 'react';
 import ExerciseForm from './ExerciseForm';
-import useInputState from '../hooks/useInputState'
-import { DispatchContext } from '../contexts/workouts.context';
+import useInputState from '../../hooks/useInputState'
+import { DispatchContext } from '../../contexts/workouts.context';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
@@ -59,7 +59,6 @@ export default function WorkoutForm() {
                         />
                     </Form.Group>
                 </Form>
-                <ExerciseForm />
                 <div>
                     <Button
                         form="workout-form"

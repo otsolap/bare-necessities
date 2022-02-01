@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
-import useInputState from '../hooks/useInputState'
-import { DispatchContext } from '../contexts/workouts.context';
+import useInputState from '../../hooks/useInputState'
+import { WorkoutsContext, DispatchContext } from '../../contexts/workouts.context';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Form from 'react-bootstrap/Form'
@@ -8,15 +8,17 @@ import Button from 'react-bootstrap/Button'
 
 
 export default function ExerciseForm() {
+    const workouts = useContext(WorkoutsContext)
     const [handleChange, reset] = useInputState("")
     const dispatch = useContext(DispatchContext)
     const moveRef = useRef()
     const repsRef = useRef()
     const imgRef = useRef()
     const linkRef = useRef()
+    const workoutIdRef = useRef()
 
     function handleSubmit(e) {
-        e.stopPropagation()
+        //   e.stopPropagation()
         e.preventDefault();
         dispatch({
             type: "ADD_EXERCISE",
@@ -24,6 +26,7 @@ export default function ExerciseForm() {
             reps: repsRef.current.value,
             image: imgRef.current.value,
             link: linkRef.current.value,
+            workoutId: workoutIdRef.current.value
         })
         reset();
     }
@@ -85,6 +88,20 @@ export default function ExerciseForm() {
                             onChange={handleChange}
                             className="mb-1"
                         />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Workout</Form.Label>
+                        <Form.Select
+                            ref={workoutIdRef}
+                        >
+                            {
+                                workouts.map(workout => (
+                                    <option key={workout.id} value={workout.id}>
+                                        {workout.workoutDay}
+                                    </option>
+                                ))
+                            }
+                        </Form.Select>
                     </Form.Group>
                     <Button
                         variant="secondary"

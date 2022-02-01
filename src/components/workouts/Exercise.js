@@ -1,5 +1,5 @@
 import React, { useContext, memo } from 'react';
-import { DispatchContext } from '../contexts/workouts.context';
+import { DispatchContext } from '../../contexts/workouts.context';
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 

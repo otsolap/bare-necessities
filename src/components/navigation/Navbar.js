@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
-import logo from '../imgs/Avatar_sm.png'
+import logo from '../../imgs/Avatar_sm.png'
 
 export default function Nav() {
     return (
