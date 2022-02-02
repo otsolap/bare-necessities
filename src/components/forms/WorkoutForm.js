@@ -5,13 +5,30 @@ import { DispatchContext } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Dates, Types } from '../../util/defaultOptions'
 
 
-export default function WorkoutForm() {
+export default function WorkoutForm({ show, handleClose }) {
     const [handleChange, reset] = useInputState("")
     const dispatch = useContext(DispatchContext)
     const dayRef = useRef();
     const typeRef = useRef();
+
+    const dateOptions = Dates.map((date) => {
+        return (
+            <option key={date} value={date}>
+                {date}
+            </option>
+        )
+    })
+
+    const workoutTypes = Types.map((type) => {
+        return (
+            <option key={type} value={type}>
+                {type}
+            </option>
+        )
+    })
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,9 +41,9 @@ export default function WorkoutForm() {
     }
 
     return (
-        <Modal>
+        <Modal show={show} onHide={handleClose}>
             <Form id="workout-form" onSubmit={handleSubmit}>
-                <Modal.Header>
+                <Modal.Header closebutton>
                     <Modal.Title>Add Workout</Modal.Title>
                 </Modal.Header>
                 <Form.Group controlId="workoutDay">
@@ -34,6 +51,8 @@ export default function WorkoutForm() {
                         Day
                     </Form.Label>
                     <Form.Control
+                        as="select"
+                        custom
                         required
                         controlId="workoutDay"
                         name="workoutDay"
@@ -41,12 +60,15 @@ export default function WorkoutForm() {
                         onChange={handleChange}
                         className='mb-1'
                     />
+                    {dateOptions}
                 </Form.Group>
                 <Form.Group controlId="workoutType">
                     <Form.Label>
                         Workout type
                     </Form.Label>
                     <Form.Control
+                        as="select"
+                        custom
                         controlId="workoutType"
                         required
                         name="workoutType"
@@ -54,6 +76,7 @@ export default function WorkoutForm() {
                         onChange={handleChange}
                         className="mb-1"
                     />
+                    {workoutTypes}
                 </Form.Group>
             </Form>
             <div>

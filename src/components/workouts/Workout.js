@@ -1,12 +1,11 @@
 import React, { useContext, memo } from 'react';
-import { WorkoutsContext, DispatchContext } from '../../contexts/workouts.context';
-import Exercise from './Exercise'
+import { DispatchContext } from '../../contexts/workouts.context';
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 
 function Workout({ id, completed, workoutType, workoutDay }) {
-    const exercises = useContext(WorkoutsContext)
     const dispatch = useContext(DispatchContext)
 
     function toggleExercise(e) {
@@ -19,13 +18,12 @@ function Workout({ id, completed, workoutType, workoutDay }) {
             <em>Day:</em><p>{workoutDay}</p>
             <em>Type:</em><p>{workoutType}</p>
             <div>
-                {exercises.map(exercise => (
-                    <Exercise
-                        {...exercise}
-                        key={exercise.id}
-                    />
-                )
-                )}
+                <Button>
+                    Add Workout
+                </Button>
+                <Button>
+                    View Workouts
+                </Button>
             </div>
             <Form>
                 <Form.Check

@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
-export default function ExerciseForm() {
+export default function ExerciseForm({ show, handleClose }) {
     const workouts = useContext(WorkoutsContext)
     const [handleChange, reset] = useInputState("")
     const dispatch = useContext(DispatchContext)
@@ -30,10 +30,10 @@ export default function ExerciseForm() {
     }
 
     return (
-        <Modal>
+        <Modal show={show} onHide={handleClose}>
             <Form
                 onSubmit={handleSubmit}>
-                <Modal.Header>
+                <Modal.Header closebutton>
                     <Modal.Title>Add Exercise</Modal.Title>
                 </Modal.Header>
                 <Form.Group controlId="move">
