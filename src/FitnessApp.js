@@ -2,9 +2,9 @@ import useToggle from './hooks/useToggleState'
 import './FitnessApp.css';
 import Navbar from './components/navigation/Navbar';
 import { WorkoutsProvider } from './contexts/workouts.context';
-import WorkoutForm from './components/forms/WorkoutForm';
+import WorkoutFormModal from './components/forms/WorkoutFormModal';
 import WorkoutList from './components/workouts/WorkoutList';
-import ExerciseForm from './components/forms/ExerciseForm'
+import ExerciseFormModal from './components/forms/ExerciseFormModal'
 import Footer from './components/navigation/Footer'
 import Button from "react-bootstrap/Button"
 
@@ -24,11 +24,11 @@ function FitnessApp() {
         <Button onClick={toggleShowExerciseForm}>
           Add Exercise
         </Button>
-        <WorkoutForm
+        <WorkoutFormModal
           show={showWorkoutForm}
           handleClose={() => toggleShowWorkoutForm(false)}
         />
-        <ExerciseForm
+        <ExerciseFormModal
           show={showExerciseForm}
           handleClose={() => toggleShowExerciseForm(false)}
         />

@@ -4,15 +4,13 @@ const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_EXERCISE":
             return [...state, {
-                exercises: [{
-                    workoutId: action.workoutId,
-                    id: uuidv4(),
-                    move: action.move,
-                    reps: action.reps,
-                    video: action.video,
-                    image: action.image,
-                    completed: false,
-                }]
+                workoutId: action.workoutId,
+                id: uuidv4(),
+                move: action.move,
+                reps: action.reps,
+                video: action.video,
+                image: action.image,
+                completed: false,
             }]
 
         case "ADD_WORKOUT":

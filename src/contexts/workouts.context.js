@@ -7,14 +7,6 @@ const defaultWorkouts = [
         id: 1,
         workoutDay: "Monday",
         workoutType: "Legs",
-        exercises: [{
-            id: 11,
-            move: "Squat",
-            reps: "3 x 10-15",
-            link: "",
-            image: "",
-            completed: false
-        }],
         workoutDone: false
     }
 ]

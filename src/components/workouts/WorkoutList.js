@@ -12,10 +12,10 @@ export default function WorkoutList() {
             <Container>
                 <Row>
                     {workouts.map((workout, i) => (
-                        <React.Fragment key={workout.workoutDay}>
+                        <React.Fragment key={i}>
                             <Workout
                                 {...workout}
-                                key={workout.workoutDay}
+                                key={workout.id}
                             />
                         </React.Fragment>
                     ))}
