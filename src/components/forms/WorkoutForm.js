@@ -50,33 +50,33 @@ export default function WorkoutForm({ show, handleClose }) {
                     <Form.Label>
                         Day
                     </Form.Label>
-                    <Form.Control
-                        as="select"
-                        custom
+                    <Form.Select
                         required
                         controlId="workoutDay"
+                        placeholder="Choose Day"
                         name="workoutDay"
                         ref={dayRef}
                         onChange={handleChange}
                         className='mb-1'
-                    />
-                    {dateOptions}
+                    >
+                        {dateOptions}
+                    </Form.Select>
                 </Form.Group>
                 <Form.Group controlId="workoutType">
                     <Form.Label>
                         Workout type
                     </Form.Label>
-                    <Form.Control
-                        as="select"
-                        custom
+                    <Form.Select
                         controlId="workoutType"
                         required
+                        placeholder="Choose Type"
                         name="workoutType"
                         ref={typeRef}
                         onChange={handleChange}
                         className="mb-1"
-                    />
-                    {workoutTypes}
+                    >
+                        {workoutTypes}
+                    </Form.Select>
                 </Form.Group>
             </Form>
             <div>

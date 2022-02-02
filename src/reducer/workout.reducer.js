@@ -16,6 +16,10 @@ const reducer = (state, action) => {
             }]
 
         case "ADD_WORKOUT":
+            if (state.find(workout => workout.workoutDay === action.workoutDay)) {
+                return state
+            }
+
             return [...state, {
                 id: uuidv4(),
                 workoutDay: action.workoutDay,
