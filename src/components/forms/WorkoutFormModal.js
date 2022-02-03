@@ -1,7 +1,7 @@
 
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import useInputState from '../../hooks/useInputState'
-import { DispatchContext } from '../../contexts/workouts.context';
+import { useDispatch } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -10,7 +10,7 @@ import { Days, Types } from '../../util/defaultOptions'
 
 export default function WorkoutForm({ show, handleClose }) {
     const [handleChange] = useInputState("")
-    const dispatch = useContext(DispatchContext)
+    const { dispatchWorkout } = useDispatch()
     const dayRef = useRef();
     const typeRef = useRef();
 
@@ -32,7 +32,7 @@ export default function WorkoutForm({ show, handleClose }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch({
+        dispatchWorkout({
             type: "ADD_WORKOUT",
             workoutDay: dayRef.current.value,
             workoutType: typeRef.current.value

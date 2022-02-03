@@ -1,8 +1,8 @@
+import { useState } from 'react'
 import './FitnessApp.css';
 import useToggle from './hooks/useToggleState'
 import Navbar from './components/navigation/Navbar';
 import { WorkoutsProvider } from './contexts/workouts.context';
-import { ExercisesProvider } from './contexts/exercises.context'
 import WorkoutFormModal from './components/forms/WorkoutFormModal';
 import WorkoutList from './components/workouts/WorkoutList';
 import ExerciseFormModal from './components/forms/ExerciseFormModal'
@@ -13,28 +13,29 @@ import Button from "react-bootstrap/Button"
 function FitnessApp() {
   const [showWorkoutForm, toggleShowWorkoutForm] = useToggle(false)
   const [showExerciseForm, toggleShowExerciseForm] = useToggle(false)
+  const [showExercises, toggleShowExercises] = useState()
 
   return (
     <div>
       <Navbar />
       <WorkoutsProvider>
-        <ExercisesProvider>
-          <Button onClick={toggleShowWorkoutForm}>
-            Add Workout
-          </Button>
-          <Button onClick={toggleShowExerciseForm}>
-            Add Exercise
-          </Button>
-          <WorkoutList />
-          <WorkoutFormModal
-            show={showWorkoutForm}
-            handleClose={() => toggleShowWorkoutForm(false)}
-          />
-          <ExerciseFormModal
-            show={showExerciseForm}
-            handleClose={() => toggleShowExerciseForm(false)}
-          />
-        </ExercisesProvider>
+        <Button onClick={toggleShowWorkoutForm}>
+          Add Workout
+        </Button>
+        <Button onClick={toggleShowExerciseForm}>
+          Add Exercise
+        </Button>
+        <WorkoutList
+          toggleShowExercises={toggleShowExercises}
+        />
+        <WorkoutFormModal
+          show={showWorkoutForm}
+          handleClose={() => toggleShowWorkoutForm(false)}
+        />
+        <ExerciseFormModal
+          show={showExerciseForm}
+          handleClose={() => toggleShowExerciseForm(false)}
+        />
       </WorkoutsProvider>
       <Footer />
     </div >

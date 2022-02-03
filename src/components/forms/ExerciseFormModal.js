@@ -1,15 +1,15 @@
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import useInputState from '../../hooks/useInputState'
-import { WorkoutsContext, DispatchContext } from '../../contexts/workouts.context';
+import { useWorkouts, useDispatch } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
 export default function ExerciseForm({ show, handleClose }) {
-    const workouts = useContext(WorkoutsContext)
     const [handleChange] = useInputState("")
-    const dispatch = useContext(DispatchContext)
+    const { workouts } = useWorkouts()
+    const { dispatchExercise } = useDispatch()
     const moveRef = useRef()
     const repsRef = useRef()
     const imgRef = useRef()
@@ -18,7 +18,7 @@ export default function ExerciseForm({ show, handleClose }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch({
+        dispatchExercise({
             type: "ADD_EXERCISE",
             move: moveRef.current.value,
             reps: repsRef.current.value,
