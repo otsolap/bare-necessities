@@ -1,5 +1,11 @@
-const Dates = [
-    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
+const Days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
 ]
 
 const Types = [
@@ -10,7 +16,7 @@ const Types = [
     "Chest + Shoulders",
     "Chest + Shoulders + Arms",
     "Legs",
-    "Shoudlers",
+    "Shoudlers"
 ]
 
-export { Dates, Types }
+export { Days, Types }

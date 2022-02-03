@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 
 export default function ExerciseForm({ show, handleClose }) {
     const workouts = useContext(WorkoutsContext)
-    const [handleChange, reset] = useInputState("")
+    const [handleChange] = useInputState("")
     const dispatch = useContext(DispatchContext)
     const moveRef = useRef()
     const repsRef = useRef()
@@ -17,23 +17,23 @@ export default function ExerciseForm({ show, handleClose }) {
     const workoutIdRef = useRef()
 
     function handleSubmit(e) {
-        e.preventDefault();
+        e.preventDefault()
         dispatch({
             type: "ADD_EXERCISE",
             move: moveRef.current.value,
             reps: repsRef.current.value,
             image: imgRef.current.value,
             link: linkRef.current.value,
-            workoutId: workoutIdRef.current.value
+            workoutId: parseFloat(workoutIdRef.current.value)
         })
-        reset();
+        handleClose()
     }
 
     return (
         <Modal show={show} onHide={handleClose}>
             <Form
                 onSubmit={handleSubmit}>
-                <Modal.Header closebutton>
+                <Modal.Header closeButton>
                     <Modal.Title>Add Exercise</Modal.Title>
                 </Modal.Header>
                 <Form.Group controlId="move">
@@ -89,6 +89,7 @@ export default function ExerciseForm({ show, handleClose }) {
                 <Form.Group>
                     <Form.Label>Workout</Form.Label>
                     <Form.Select
+                        required
                         ref={workoutIdRef}
                     >
                         {

@@ -5,12 +5,15 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
-function Workout({ id, completed, workoutType, workoutDay, viewExercises }) {
+function Workout({ id, completed, workoutType, workoutDay, onViewExercisesClick }) {
     const dispatch = useContext(DispatchContext)
 
     function toggleExercise(e) {
         e.stopPropagation()
-        dispatch({ type: "TOGGLE_EXERCISE", id: id })
+        dispatch({
+            type: "TOGGLE_EXERCISE",
+            id: id
+        })
     }
 
     return (
@@ -18,8 +21,8 @@ function Workout({ id, completed, workoutType, workoutDay, viewExercises }) {
             <em>Day:</em><p>{workoutDay}</p>
             <em>Type:</em><p>{workoutType}</p>
             <div>
-                <Button onClick={viewExercises}>
-                    View Workouts
+                <Button onClick={onViewExercisesClick}>
+                    View Exercises
                 </Button>
             </div>
             <Form>

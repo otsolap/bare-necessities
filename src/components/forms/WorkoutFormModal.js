@@ -5,19 +5,19 @@ import { DispatchContext } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { Dates, Types } from '../../util/defaultOptions'
+import { Days, Types } from '../../util/defaultOptions'
 
 
 export default function WorkoutForm({ show, handleClose }) {
-    const [handleChange, reset] = useInputState("")
+    const [handleChange] = useInputState("")
     const dispatch = useContext(DispatchContext)
     const dayRef = useRef();
     const typeRef = useRef();
 
-    const dateOptions = Dates.map((date) => {
+    const dayOptions = Days.map((day) => {
         return (
-            <option key={date} value={date}>
-                {date}
+            <option key={day} value={day}>
+                {day}
             </option>
         )
     })
@@ -31,19 +31,21 @@ export default function WorkoutForm({ show, handleClose }) {
     })
 
     function handleSubmit(e) {
-        e.preventDefault();
+        e.preventDefault()
         dispatch({
             type: "ADD_WORKOUT",
             workoutDay: dayRef.current.value,
             workoutType: typeRef.current.value
         })
-        reset();
+        // refactor this to not do handleclose if nothing is dispatched.
+        // like there is no new state. Right now it closes even if you can't add new workout
+        handleClose()
     }
 
     return (
         <Modal show={show} onHide={handleClose}>
             <Form id="workout-form" onSubmit={handleSubmit}>
-                <Modal.Header closebutton>
+                <Modal.Header closeButton>
                     <Modal.Title>Add Workout</Modal.Title>
                 </Modal.Header>
                 <Form.Group controlId="workoutDay">
@@ -53,13 +55,13 @@ export default function WorkoutForm({ show, handleClose }) {
                     <Form.Select
                         required
                         controlId="workoutDay"
-                        placeholder="Choose Day"
                         name="workoutDay"
                         ref={dayRef}
                         onChange={handleChange}
                         className='mb-1'
                     >
-                        {dateOptions}
+                        <option hidden>Choose Day</option>
+                        {dayOptions}
                     </Form.Select>
                 </Form.Group>
                 <Form.Group controlId="workoutType">
@@ -68,13 +70,12 @@ export default function WorkoutForm({ show, handleClose }) {
                     </Form.Label>
                     <Form.Select
                         controlId="workoutType"
-                        required
-                        placeholder="Choose Type"
                         name="workoutType"
                         ref={typeRef}
                         onChange={handleChange}
                         className="mb-1"
                     >
+                        <option hidden>Choose Type</option>
                         {workoutTypes}
                     </Form.Select>
                 </Form.Group>
