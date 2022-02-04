@@ -8,17 +8,13 @@ List of Workouts that you can add, delete, remove, edit and read.
 
 ### Learning Curve
 
-- Material UI
-- Context API
+- Context API with actions, useReducer and proper React Mern-stack architecture.
 
 #### Long-term planning
 
-Refactor:
-
-- Redo Workout Day && Type into React-Bootstrap Form-Select options.
 - Refactor LocalStorage to MERN-stack.
 
-New Features:
+New Features (Deadline: 2035):
 
 - Motivational Quotation for the day.
 - Calender

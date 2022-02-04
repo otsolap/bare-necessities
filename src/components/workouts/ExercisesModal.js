@@ -1,28 +1,29 @@
-import React, { useContext, memo } from 'react';
-import { DispatchContext, ExercisesContext } from '../../contexts/exercises.context';
+import React, { memo } from 'react';
+import { useWorkouts, useDispatch } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 
-function Exercise({ workoutId, id }) {
-    const exercises = useContext(ExercisesContext)
-    const dispatch = useContext(DispatchContext)
+function Exercise({ id, workoutId, handleClose }) {
+    const { workouts, getWorkoutExercises } = useWorkouts()
+    const exercises = getWorkoutExercises(workoutId)
+    const { dispatchExercise } = useDispatch()
 
     function toggleExercise(e) {
         e.stopPropagation()
-        dispatch({
+        dispatchExercise({
             type: "TOGGLE_EXERCISE",
             id: id
         })
     }
-
+    const workout = workoutId ? workouts.find(w => w.id === workoutId) : "Uncategorized"
     return (
-        <Modal show={workoutId != null}>
+        <Modal show={workoutId != null} onHide={handleClose}>
             <Modal.Header closeButton>
-                Exercises -
+                Exercises - {workout.workoutDay}
             </Modal.Header>
             {exercises.map(exercise => (
-                <Col key={exercise.workoutId} md={12}>
+                <Col key={exercise.id} md={12}>
                     {exercise.image ? <img src={exercise.image} alt={exercise.move} /> : ""}
                     {exercise.link ?
                         <a href={exercise.link}><p><em>Move:</em>{exercise.move}</p></a>
@@ -33,7 +34,6 @@ function Exercise({ workoutId, id }) {
                         <Form.Check
                             type="switch"
                             id={exercise.id}
-                            label="Exercise Done"
                             checked={exercise.complete}
                             onClick={toggleExercise}
                         />

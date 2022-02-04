@@ -1,17 +1,17 @@
-import React, { useContext, memo } from 'react';
-import { DispatchContext } from '../../contexts/workouts.context';
+import React, { memo } from 'react';
+import { useDispatch } from '../../contexts/workouts.context';
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
-function Workout({ id, completed, workoutType, workoutDay, toggleShowExercises }) {
-    const dispatch = useContext(DispatchContext)
+function Workout({ id, completed, workoutType, workoutDay, onViewExercisesClick, onAddExercisesClick }) {
+    const { dispatchWorkout } = useDispatch()
 
-    function toggleExercise(e) {
+    function toggleWorkout(e) {
         e.stopPropagation()
-        dispatch({
-            type: "TOGGLE_EXERCISE",
+        dispatchWorkout({
+            type: "TOGGLE_WORKOUT",
             id: id
         })
     }
@@ -21,8 +21,11 @@ function Workout({ id, completed, workoutType, workoutDay, toggleShowExercises }
             <em>Day:</em><p>{workoutDay}</p>
             <em>Type:</em><p>{workoutType}</p>
             <div>
-                <Button onClick={toggleShowExercises(id)}>
+                <Button onClick={onViewExercisesClick}>
                     View Exercises
+                </Button>
+                <Button onClick={onAddExercisesClick}>
+                    Add Exercise
                 </Button>
             </div>
             <Form>
@@ -31,7 +34,7 @@ function Workout({ id, completed, workoutType, workoutDay, toggleShowExercises }
                     id={id}
                     label="Workout Done"
                     checked={completed}
-                    onClick={toggleExercise}
+                    onClick={toggleWorkout}
                 />
             </Form>
         </Col>

@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
-export default function ExerciseForm({ show, handleClose }) {
+export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
     const [handleChange] = useInputState("")
     const { workouts } = useWorkouts()
     const { dispatchExercise } = useDispatch()
@@ -24,7 +24,7 @@ export default function ExerciseForm({ show, handleClose }) {
             reps: repsRef.current.value,
             image: imgRef.current.value,
             link: linkRef.current.value,
-            workoutId: parseFloat(workoutIdRef.current.value)
+            workoutId: workoutIdRef.current.value
         })
         handleClose()
     }
@@ -89,6 +89,7 @@ export default function ExerciseForm({ show, handleClose }) {
                 <Form.Group>
                     <Form.Label>Workout</Form.Label>
                     <Form.Select
+                        defaultValue={defaultWorkoutId}
                         required
                         ref={workoutIdRef}
                     >
