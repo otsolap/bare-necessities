@@ -1,8 +1,10 @@
 import React, { memo } from 'react';
 import { useDispatch } from '../../contexts/workouts.context';
 import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import '../../styles/Workouts.css'
 
 
 function Workout({ id, completed, workoutType, workoutDay, onViewExercisesClick, onAddExercisesClick }) {
@@ -17,26 +19,33 @@ function Workout({ id, completed, workoutType, workoutDay, onViewExercisesClick,
     }
 
     return (
-        <Col md={12}>
-            <em>Day:</em><p>{workoutDay}</p>
-            <em>Type:</em><p>{workoutType}</p>
-            <div>
-                <Button onClick={onViewExercisesClick}>
-                    View Exercises
-                </Button>
-                <Button onClick={onAddExercisesClick}>
-                    Add Exercise
-                </Button>
-            </div>
-            <Form>
-                <Form.Check
-                    type="switch"
-                    id={id}
-                    label="Workout Done"
-                    checked={completed}
-                    onClick={toggleWorkout}
-                />
-            </Form>
+        <Col sm={12} md={4} className="my-3">
+            <Card
+                className="workout-card text-center">
+                <Card.Header>
+                    <Card.Text><em>Day:</em><p>{workoutDay}</p></Card.Text>
+                    <Card.Text> <em>Type:</em><p>{workoutType}</p></Card.Text>
+                </Card.Header>
+                <Card.Body>
+                    <Button variant="light" onClick={onViewExercisesClick}>
+                        View Exercises
+                    </Button>
+                    <Button variant="outline-light" onClick={onAddExercisesClick}>
+                        Add Exercise
+                    </Button>
+                    <Form>
+                        <Form.Check.Label>
+                            Workout Done
+                        </Form.Check.Label>
+                        <Form.Check
+                            type="switch"
+                            id={id}
+                            checked={completed}
+                            onClick={toggleWorkout}
+                        />
+                    </Form>
+                </Card.Body>
+            </Card>
         </Col>
     );
 }

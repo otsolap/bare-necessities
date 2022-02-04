@@ -1,3 +1,9 @@
+:root {
+	--main-bg-color: #05090b;
+	--main-brand-bg-color: #e39b41;
+	--brand-white-color: #faf7f2;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -10,12 +16,12 @@ body,
 	height: 100%;
 	width: 100%;
 	font-family: 'Hind Guntur', sans-serif;
-	background-color: #05090b;
+	background-color: var(--main-bg-color);
 }
 
 .brand {
-	background-color: #e39b41;
-	color: #faf7f2;
+	background-color: var(--main-brand-bg-color);
+	color: var(--brand-white-color);
 }
 
 h1,
@@ -29,5 +35,5 @@ span,
 label,
 em,
 p {
-	color: #faf7f2;
+	color: var(--brand-white-color);
 }

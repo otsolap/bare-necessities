@@ -8,8 +8,8 @@ List of Workouts that you can add and toggle them, alongside adding new exercise
 
 ### Next Step
 
-* Edit, Remove feature for both Workouts and Exercises.
 * Styling the frontend
+* Edit, Remove feature for both Workouts and Exercises.
 * React Routes - Creating 2 pages.
 * Google Docs clone.
 * Mern-Stack transformation.

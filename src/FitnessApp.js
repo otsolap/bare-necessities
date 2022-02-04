@@ -12,7 +12,9 @@ function FitnessApp() {
   return (
     <div>
       <Navbar />
-      <Button onClick={toggleShowWorkoutForm}>
+      <Button
+        variant="success"
+        onClick={toggleShowWorkoutForm}>
         Add Workout
       </Button>
       <WorkoutList />

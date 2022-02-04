@@ -2,8 +2,8 @@ import React, { createContext, useContext } from 'react'
 import workoutReducer from '../reducer/workout.reducer'
 import useLocalStorageReducer from '../hooks/useLocalStorageReducer'
 
-const defaultWorkouts = [{ id: 1, workoutDay: "Monday", workoutType: "Legs", workoutDone: false }]
-const defaultExercises = [{ workoutId: 1, id: 11, move: "Pushups", reps: "3x10-15", link: "", image: "", completed: false, }]
+const defaultWorkouts = [{ id: "1", workoutDay: "Monday", workoutType: "Legs", workoutDone: false }]
+const defaultExercises = [{ workoutId: "1", id: 11, move: "Pushups", reps: "3x10-15", link: "https://www.youtube.com/watch?v=Ee1YkE1jlyo", image: "https://i.ytimg.com/vi/Ee1YkE1jlyo/hqdefault.jpg", completed: false, }]
 const WorkoutsContext = createContext();
 const DispatchContext = createContext();
 

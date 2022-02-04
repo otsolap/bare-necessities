@@ -5,7 +5,9 @@ import { useDispatch } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import CloseButton from 'react-bootstrap/CloseButton'
 import { Days, Types } from '../../util/defaultOptions'
+import '../../styles/Workouts.css'
 
 
 export default function WorkoutForm({ show, handleClose }) {
@@ -43,53 +45,58 @@ export default function WorkoutForm({ show, handleClose }) {
     }
 
     return (
-        <Modal show={show} onHide={handleClose}>
-            <Form id="workout-form" onSubmit={handleSubmit}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add Workout</Modal.Title>
-                </Modal.Header>
-                <Form.Group controlId="workoutDay">
-                    <Form.Label>
-                        Day
-                    </Form.Label>
-                    <Form.Select
-                        required
-                        controlId="workoutDay"
-                        name="workoutDay"
-                        ref={dayRef}
-                        onChange={handleChange}
-                        className='mb-1'
-                    >
-                        <option hidden>Choose Day</option>
-                        {dayOptions}
-                    </Form.Select>
-                </Form.Group>
-                <Form.Group controlId="workoutType">
-                    <Form.Label>
-                        Workout type
-                    </Form.Label>
-                    <Form.Select
-                        controlId="workoutType"
-                        name="workoutType"
-                        ref={typeRef}
-                        onChange={handleChange}
-                        className="mb-1"
-                    >
-                        <option hidden>Choose Type</option>
-                        {workoutTypes}
-                    </Form.Select>
-                </Form.Group>
-            </Form>
-            <div>
+        <Modal
+            fullscreen={'md-down'}
+            className="modal-background"
+            show={show}>
+            <Modal.Header className="brand">
+                <Modal.Title className="header-title">Add Workout</Modal.Title>
+                <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
+            </Modal.Header>
+            <Modal.Body>
+                <Form id="workout-form" onSubmit={handleSubmit}>
+                    <Form.Group controlId="workoutDay">
+                        <Form.Label>
+                            Day
+                        </Form.Label>
+                        <Form.Select
+                            required
+                            controlId="workoutDay"
+                            name="workoutDay"
+                            ref={dayRef}
+                            onChange={handleChange}
+                            className='mb-1'
+                        >
+                            <option hidden>Choose Day</option>
+                            {dayOptions}
+                        </Form.Select>
+                    </Form.Group>
+                    <Form.Group controlId="workoutType">
+                        <Form.Label>
+                            Workout type
+                        </Form.Label>
+                        <Form.Select
+                            controlId="workoutType"
+                            name="workoutType"
+                            ref={typeRef}
+                            onChange={handleChange}
+                            className="mb-1"
+                        >
+                            <option hidden>Choose Type</option>
+                            {workoutTypes}
+                        </Form.Select>
+                    </Form.Group>
+                </Form>
                 <Button
                     form="workout-form"
                     variant="success"
-                    className="mt-1"
+                    className="mt-3 mb-3"
                     type="submit"
                 >
-                    Submit
+                    Add Workout
                 </Button>
-            </div>
+            </Modal.Body>
+
         </Modal>
     );
 }

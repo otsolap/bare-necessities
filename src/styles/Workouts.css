@@ -1,0 +1,26 @@
+/* Modals */
+
+.modal-background .modal-content {
+	background-color: var(--main-bg-color);
+	color: var(--brand-white-color);
+}
+
+.header-title {
+	width: 100%;
+	text-align: center;
+}
+
+.exercise-column {
+	border-bottom: 1px solid var(--brand-white-color);
+}
+
+.image-container {
+	border: 1px solid var(--brand-white-color);
+}
+
+/* Workout Component */
+
+.workout-card {
+	background-color: var(--main-bg-color) !important;
+	border: 1px solid var(--brand-white-color) !important;
+}
