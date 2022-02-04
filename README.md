@@ -4,9 +4,17 @@ This is my personal eternity project where I will build my greatest web-applicat
 
 ## Current Version
 
-List of Workouts that you can add, delete, remove, edit and read.
+List of Workouts that you can add and toggle them, alongside adding new exercises.
 
-### Learning Curve
+### Next Step
+
+* Edit, Remove feature for both Workouts and Exercises.
+* Styling the frontend
+* React Routes - Creating 2 pages.
+* Google Docs clone.
+* Mern-Stack transformation.
+
+#### Learning Curve
 
 - Context API with actions, useReducer and proper React Mern-stack architecture.
 
