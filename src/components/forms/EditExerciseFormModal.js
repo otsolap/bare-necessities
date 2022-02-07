@@ -25,8 +25,6 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
         toggleEditForm();
     }
 
-    console.log(moveRef.current)
-
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="newMove">
