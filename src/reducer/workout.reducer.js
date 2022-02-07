@@ -29,6 +29,16 @@ const reducer = (state, action) => {
                 completed: false,
             }]
 
+        case "EDIT_EXERCISE":
+            return state.map(exercise =>
+                exercise.id === action.id ? {
+                    ...exercise,
+                    move: action.newMove,
+                    reps: action.newReps,
+                    link: action.newLink,
+                    image: action.newLink
+                } : exercise);
+
         case "TOGGLE_EXERCISE":
             return state.map(exercise =>
                 exercise.id === action.id ? { ...exercise, completed: !exercise.completed } : exercise)

@@ -27,3 +27,7 @@ New Features (Deadline: 2035):
 - Motivational Quotation for the day.
 - Calender
 - Daily goals.
+
+##### Bugs/Improvements to be Made.
+
+- Edit Exercise right now displays current value via placeholder. Let's make it an actual value.
