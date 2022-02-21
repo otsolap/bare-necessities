@@ -34,7 +34,7 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     controlId="newMove"
                     name="newMove"
                     ref={moveRef}
-                    placeholder={move}
+                    defaultValue={move}
                     className='mb-1'
                 />
             </Form.Group>
@@ -47,7 +47,7 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     controlId="newReps"
                     name="newReps"
                     ref={repsRef}
-                    placeholder={reps}
+                    defaultValue={reps}
                     className="mb-1"
                 />
             </Form.Group>
@@ -60,7 +60,7 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     controlId="newExerciseImg"
                     name="newExerciseImg"
                     ref={imgRef}
-                    placeholder={image}
+                    defaultValue={image}
                     className="mb-1"
                 />
             </Form.Group>
@@ -73,7 +73,7 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     controlId="newExerciseLink"
                     name="newExerciseLink"
                     ref={linkRef}
-                    placeholder={link}
+                    defaultValue={link}
                     className="mb-1"
                 />
             </Form.Group>
