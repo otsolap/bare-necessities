@@ -59,7 +59,6 @@ export default function WorkoutForm({ show, handleClose }) {
                         </Form.Label>
                         <Form.Select
                             required
-                            controlId="workoutDay"
                             name="workoutDay"
                             ref={dayRef}
                             className='mb-1'
@@ -73,7 +72,6 @@ export default function WorkoutForm({ show, handleClose }) {
                             Workout type
                         </Form.Label>
                         <Form.Select
-                            controlId="workoutType"
                             name="workoutType"
                             ref={typeRef}
                             className="mb-1"

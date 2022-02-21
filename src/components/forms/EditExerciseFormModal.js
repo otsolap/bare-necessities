@@ -30,8 +30,6 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Move
                 </Form.Label>
                 <Form.Control
-                    required
-                    controlId="newMove"
                     name="newMove"
                     ref={moveRef}
                     defaultValue={move}
@@ -43,8 +41,6 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Rep range
                 </Form.Label>
                 <Form.Control
-                    required
-                    controlId="newReps"
                     name="newReps"
                     ref={repsRef}
                     defaultValue={reps}
@@ -56,8 +52,6 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Image
                 </Form.Label>
                 <Form.Control
-                    required
-                    controlId="newExerciseImg"
                     name="newExerciseImg"
                     ref={imgRef}
                     defaultValue={image}
@@ -69,8 +63,6 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Link
                 </Form.Label>
                 <Form.Control
-                    required
-                    controlId="newExerciseLink"
                     name="newExerciseLink"
                     ref={linkRef}
                     defaultValue={link}

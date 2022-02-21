@@ -47,7 +47,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                         </Form.Label>
                         <Form.Control
                             required
-                            controlId="move"
                             name="move"
                             ref={moveRef}
                             className='mb-1'
@@ -59,7 +58,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                         </Form.Label>
                         <Form.Control
                             required
-                            controlId="reps"
                             name="reps"
                             ref={repsRef}
                             className="mb-1"
@@ -70,7 +68,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                             Image
                         </Form.Label>
                         <Form.Control
-                            controlId="exerciseImg"
                             name="exerciseImg"
                             ref={imgRef}
                             className="mb-1"
@@ -81,7 +78,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                             Link
                         </Form.Label>
                         <Form.Control
-                            controlId="exerciseLink"
                             name="exerciseLink"
                             ref={linkRef}
                             className="mb-1"
