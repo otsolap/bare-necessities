@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import useInputState from '../../hooks/useInputState'
 import { useWorkouts, useDispatch } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
@@ -8,7 +7,6 @@ import CloseButton from 'react-bootstrap/CloseButton'
 import '../../styles/Workouts.css'
 
 export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
-    const [handleChange] = useInputState("")
     const { workouts } = useWorkouts()
     const { dispatchExercise } = useDispatch()
     const moveRef = useRef()
@@ -52,7 +50,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                             controlId="move"
                             name="move"
                             ref={moveRef}
-                            onChange={handleChange}
                             className='mb-1'
                         />
                     </Form.Group>
@@ -65,7 +62,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                             controlId="reps"
                             name="reps"
                             ref={repsRef}
-                            onChange={handleChange}
                             className="mb-1"
                         />
                     </Form.Group>
@@ -77,7 +73,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                             controlId="exerciseImg"
                             name="exerciseImg"
                             ref={imgRef}
-                            onChange={handleChange}
                             className="mb-1"
                         />
                     </Form.Group>
@@ -89,7 +84,6 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                             controlId="exerciseLink"
                             name="exerciseLink"
                             ref={linkRef}
-                            onChange={handleChange}
                             className="mb-1"
                         />
                     </Form.Group>

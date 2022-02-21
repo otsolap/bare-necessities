@@ -40,7 +40,7 @@ function Exercise({ id, move, reps, image, link, completed }) {
                 <>
                     <div>
                         {image ? <div className="image-container"><Image fluid src={image} alt={move} /> </div> : ""}
-                        <em>Move: </em> {link ? <a href={link}>{move} </a> : <span>{move} </span>}
+                        <em>Move: </em> {link ? <a href={link} rel="noopener noreferrer" target="_blank">{move} </a> : <span>{move} </span>}
                         <p><em>Reps: </em>{reps}</p>
                     </div>
                     <Form>

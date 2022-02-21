@@ -1,6 +1,5 @@
 
 import React, { useRef } from 'react';
-import useInputState from '../../hooks/useInputState'
 import { useDispatch } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
@@ -11,7 +10,6 @@ import '../../styles/Workouts.css'
 
 
 export default function WorkoutForm({ show, handleClose }) {
-    const [handleChange] = useInputState("")
     const { dispatchWorkout } = useDispatch()
     const dayRef = useRef();
     const typeRef = useRef();
@@ -64,7 +62,6 @@ export default function WorkoutForm({ show, handleClose }) {
                             controlId="workoutDay"
                             name="workoutDay"
                             ref={dayRef}
-                            onChange={handleChange}
                             className='mb-1'
                         >
                             <option hidden>Choose Day</option>
@@ -79,7 +76,6 @@ export default function WorkoutForm({ show, handleClose }) {
                             controlId="workoutType"
                             name="workoutType"
                             ref={typeRef}
-                            onChange={handleChange}
                             className="mb-1"
                         >
                             <option hidden>Choose Type</option>

@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Container from "react-bootstrap/Container"
 import CloseButton from 'react-bootstrap/CloseButton'
 
-function ExerciseModal({ id, workoutId, handleClose }) {
+function ExerciseModal({ workoutId, handleClose }) {
     const { workouts, getWorkoutExercises } = useWorkouts()
     const exercises = getWorkoutExercises(workoutId)
     const workout = workoutId ? workouts.find(w => w.id === workoutId) : "Uncategorized"

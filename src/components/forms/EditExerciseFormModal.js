@@ -1,12 +1,10 @@
 import React, { useRef } from "react";
-import useInputState from '../../hooks/useInputState'
 import { useDispatch } from '../../contexts/workouts.context';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) {
     const { dispatchExercise } = useDispatch()
-    const [handleChange] = useInputState("");
     const moveRef = useRef()
     const repsRef = useRef()
     const imgRef = useRef()
@@ -32,11 +30,11 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Move
                 </Form.Label>
                 <Form.Control
+                    required
                     controlId="newMove"
                     name="newMove"
                     ref={moveRef}
                     placeholder={move}
-                    onChange={handleChange}
                     className='mb-1'
                 />
             </Form.Group>
@@ -45,11 +43,11 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Rep range
                 </Form.Label>
                 <Form.Control
+                    required
                     controlId="newReps"
                     name="newReps"
                     ref={repsRef}
                     placeholder={reps}
-                    onChange={handleChange}
                     className="mb-1"
                 />
             </Form.Group>
@@ -58,11 +56,11 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Image
                 </Form.Label>
                 <Form.Control
+                    required
                     controlId="newExerciseImg"
                     name="newExerciseImg"
                     ref={imgRef}
                     placeholder={image}
-                    onChange={handleChange}
                     className="mb-1"
                 />
             </Form.Group>
@@ -71,11 +69,11 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
                     Link
                 </Form.Label>
                 <Form.Control
+                    required
                     controlId="newExerciseLink"
                     name="newExerciseLink"
                     ref={linkRef}
                     placeholder={link}
-                    onChange={handleChange}
                     className="mb-1"
                 />
             </Form.Group>

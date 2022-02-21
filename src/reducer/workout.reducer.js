@@ -36,7 +36,7 @@ const reducer = (state, action) => {
                     move: action.newMove,
                     reps: action.newReps,
                     link: action.newLink,
-                    image: action.newLink
+                    image: action.newImage,
                 } : exercise);
 
         case "TOGGLE_EXERCISE":
