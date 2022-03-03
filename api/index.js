@@ -1,4 +1,5 @@
 const workoutsRoute = require('./routes/workouts')
+const exercisesRoute = require('./routes/exercises')
 const cors = require('cors')
 const express = require('express')
 const helmet = require('helmet')
@@ -21,6 +22,7 @@ app.use(morgan('common'))
 app.use(cors())
 
 app.use('/api/workouts', workoutsRoute)
+app.use('/api/exercises', exercisesRoute)
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(
