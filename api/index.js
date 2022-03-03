@@ -1,5 +1,8 @@
+const workoutsRoute = require('./routes/workouts')
 const cors = require('cors')
 const express = require('express')
+const helmet = require('helmet')
+const morgan = require('morgan')
 const app = express()
 const dotenv = require('dotenv')
 const { default: mongoose } = require('mongoose')
@@ -12,8 +15,12 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }).then(() => {
     console.log(`${err} | Not connected to MongoDB`)
 })
 
-app.unsubscribe(express.json())
+app.use(express.json())
+app.use(helmet())
+app.use(morgan('common'))
 app.use(cors())
+
+app.use('/api/workouts', workoutsRoute)
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(
