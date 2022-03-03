@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Workout = require('../models/Workout')
+const Exercise = require('../models/Exercise')
 
 // create Workout
 router.post('/', async (req, res) => {
@@ -57,5 +58,17 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 })
+
+// get all Exercises of the Workout
+router.get('/exercises/:id', async (req, res) => {
+    try {
+        const workout = await Workout.findOne({ id: req.params.id })
+        const exercises = await Exercise.find({ workoutId: workout._id })
+        res.status(200).json(exercises)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 
 module.exports = router
