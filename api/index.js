@@ -5,7 +5,7 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const app = express()
 const dotenv = require('dotenv')
-const { default: mongoose } = require('mongoose')
+const { mongoose } = require('mongoose')
 
 dotenv.config()
 

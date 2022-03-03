@@ -48,4 +48,14 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+// get all Workouts
+router.get('/', async (req, res) => {
+    try {
+        const workout = await Workout.find()
+        res.status(200).json(workout)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
