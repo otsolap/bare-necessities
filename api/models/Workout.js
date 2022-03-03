@@ -19,6 +19,10 @@ const WorkoutSchema = new mongoose.Schema(
                 'Legs',
                 'Shoudlers'],
             required: true
+        },
+        workoutDone: {
+            type: Boolean,
+            default: false
         }
     },
     { timestamps: true }
