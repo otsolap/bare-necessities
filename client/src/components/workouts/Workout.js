@@ -23,8 +23,8 @@ function Workout({ id, completed, workoutType, workoutDay, onViewExercisesClick,
             <Card
                 className="workout-card text-center">
                 <Card.Header>
-                    <Card.Text><em>Day:</em><p>{workoutDay}</p></Card.Text>
-                    <Card.Text> <em>Type:</em><p>{workoutType}</p></Card.Text>
+                    <Card.Text><em>Day:</em>{workoutDay}</Card.Text>
+                    <Card.Text> <em>Type:</em>{workoutType}</Card.Text>
                 </Card.Header>
                 <Card.Body>
                     <Button variant="light" onClick={onViewExercisesClick}>

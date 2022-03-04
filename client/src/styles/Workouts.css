@@ -24,3 +24,9 @@
 	background-color: var(--main-bg-color) !important;
 	border: 1px solid var(--brand-white-color) !important;
 }
+
+/* Exercise Component */
+
+.exerciseCard {
+	background-color: var(--main-bg-color) !important;
+}

@@ -4,15 +4,14 @@ This is my personal eternity project where I will build my greatest web-applicat
 
 ## Current Version
 
-List of Workouts that you can add and toggle them, alongside adding new exercises.
+Mern-Stack application where you can retrieve and send data from frontend to backand and visa versa.
 
 ### Next Step
 
 * Styling the frontend
-* Edit, Remove feature for both Workouts and Exercises.
 * React Routes - Creating 2 pages.
 * Google Docs clone.
-* Mern-Stack transformation.
+
 
 #### Learning Curve
 
@@ -30,4 +29,3 @@ New Features (Deadline: 2035):
 
 ##### Bugs/Improvements to be Made.
 
-- Edit Exercise right now displays current value via placeholder. Let's make it an actual value.

@@ -24,7 +24,8 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form
+            onSubmit={handleSubmit}>
             <Form.Group controlId="newMove">
                 <Form.Label>
                     Move

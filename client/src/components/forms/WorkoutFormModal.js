@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button'
 import CloseButton from 'react-bootstrap/CloseButton'
 import { Days, Types } from '../../util/defaultOptions'
 import '../../styles/Workouts.css'
+import axios from 'axios'
 
 
 export default function WorkoutForm({ show, handleClose }) {
@@ -30,13 +31,23 @@ export default function WorkoutForm({ show, handleClose }) {
         )
     })
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatchWorkout({
-            type: "ADD_WORKOUT",
+        const newWorkout = {
             workoutDay: dayRef.current.value,
             workoutType: typeRef.current.value
-        })
+        }
+        try {
+            await (axios.post('api/workouts', newWorkout))
+            dispatchWorkout({
+                type: "ADD_WORKOUT",
+                workoutDay: dayRef.current.value,
+                workoutType: typeRef.current.value
+            })
+            console.log(newWorkout)
+        } catch (err) {
+            console.log(err)
+        }
         // refactor this to not do handleclose if nothing is dispatched.
         // like there is no new state. Right now it closes even if you can't add new workout
         handleClose()

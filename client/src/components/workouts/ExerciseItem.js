@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 
 function Exercise({ id, move, reps, image, link, completed }) {
     const { dispatchExercise } = useDispatch()
@@ -38,28 +39,32 @@ function Exercise({ id, move, reps, image, link, completed }) {
                     toggleEditForm={toggle}
                 />) : (
                 <>
-                    <div>
-                        {image ? <div className="image-container"><Image fluid src={image} alt={move} /> </div> : ""}
-                        <em>Move: </em> {link ? <a href={link} rel="noopener noreferrer" target="_blank">{move} </a> : <span>{move} </span>}
-                        <p><em>Reps: </em>{reps}</p>
-                    </div>
-                    <Form>
-                        <Form.Check.Label>
-                            Exercise Done
-                        </Form.Check.Label>
-                        <Form.Check
-                            className="mb-1"
-                            type="switch"
-                            id={id}
-                            checked={completed}
-                            onClick={toggleExercise}
-                        />
-                    </Form>
-                    <Button
-                        onClick={toggle}
-                    >
-                        Edit Exercise
-                    </Button>
+                    <Card className="exerciseCard">
+                        <Card.Header>
+                            {image ? <div className="image-container"><Image fluid src={image} alt={move} /> </div> : ""}
+                            <Card.Text><em>Move: </em> {link ? <a href={link} rel="noopener noreferrer" target="_blank">{move} </a> : <span>{move} </span>}</Card.Text>
+                            <Card.Text><em>Reps: </em>{reps}</Card.Text>
+                        </Card.Header>
+                        <Card.Body>
+                            <Form>
+                                <Form.Check.Label>
+                                    Exercise Done
+                                </Form.Check.Label>
+                                <Form.Check
+                                    className="mb-1"
+                                    type="switch"
+                                    id={id}
+                                    checked={completed}
+                                    onClick={toggleExercise}
+                                />
+                            </Form>
+                            <Button
+                                onClick={toggle}
+                            >
+                                Edit Exercise
+                            </Button>
+                        </Card.Body>
+                    </Card>
                 </>
             )}
         </Col>
