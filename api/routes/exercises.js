@@ -35,6 +35,18 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+// delete exercise
+router.delete('/:id', async (req, res) => {
+    try {
+        const exercise = await Exercise.findById(req.params.id)
+        if (exercise.id === req.body.id) {
+            await exercise.deleteOne()
+            res.status(200).json('Exercise has been deleted')
+        }
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 
 
