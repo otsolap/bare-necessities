@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// add this above: useEffect
 import useToggle from '../../hooks/useToggleState'
 import ExercisesModal from './ExercisesModal'
 import ExerciseFormModal from '../forms/ExerciseFormModal'
@@ -12,11 +13,18 @@ export default function WorkoutList() {
     const [viewExerciseModalWorkoutId, setViewExerciseModalWorkoutId] = useState()
     const [addExerciseModalWorkoutId, setAddExerciseModalWorkoutId] = useState()
     const { workouts } = useWorkouts()
+    // add this above: getWorkouts
 
     function openAddExerciseModal(workoutId) {
         toggleShowExerciseForm(true)
         setAddExerciseModalWorkoutId(workoutId)
     }
+
+    /*     useEffect(() => {
+            const fetchWorkouts = async () => {
+                await (axios.get('/workouts'))
+            }
+        }) */
 
     return (
         <>

@@ -1,6 +1,7 @@
 import React, { createContext, useContext } from 'react'
 import workoutReducer from '../reducer/workout.reducer'
 import useLocalStorageReducer from '../hooks/useLocalStorageReducer'
+import axios from 'axios'
 
 const defaultWorkouts = [{ id: "1", workoutDay: "Monday", workoutType: "Legs", workoutDone: false }]
 const defaultExercises = [{ workoutId: "1", id: 11, move: "Pushups", reps: "3x10-15", link: "https://www.youtube.com/watch?v=Ee1YkE1jlyo", image: "https://i.ytimg.com/vi/Ee1YkE1jlyo/hqdefault.jpg", completed: false, }]
@@ -24,12 +25,21 @@ export function WorkoutsProvider({ children }) {
         return exercises.filter(exercise => exercise.workoutId === workoutId)
     }
 
+    function getWorkouts() {
+        return axios.get('api/workouts')
+    }
+
+    function postNewWorkout(workout) {
+        return axios.post('api/workouts', workout)
+    }
 
     return (
         <WorkoutsContext.Provider value={{
             workouts,
             exercises,
             getWorkoutExercises,
+            getWorkouts,
+            postNewWorkout
         }}>
             <DispatchContext.Provider value={{
                 dispatchWorkout,
