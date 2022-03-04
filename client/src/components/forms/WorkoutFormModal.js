@@ -44,7 +44,6 @@ export default function WorkoutForm({ show, handleClose }) {
                 workoutDay: dayRef.current.value,
                 workoutType: typeRef.current.value
             })
-            console.log(newWorkout)
         } catch (err) {
             console.log(err)
         }

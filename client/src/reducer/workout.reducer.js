@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -8,7 +7,6 @@ const reducer = (state, action) => {
             }
 
             return [...state, {
-                id: uuidv4(),
                 workoutDay: action.workoutDay,
                 workoutType: action.workoutType,
                 workoutDone: false
@@ -20,7 +18,6 @@ const reducer = (state, action) => {
 
         case "ADD_EXERCISE":
             return [...state, {
-                id: uuidv4(),
                 workoutId: action.workoutId,
                 move: action.move,
                 reps: action.reps,

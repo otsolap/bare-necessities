@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import CloseButton from 'react-bootstrap/CloseButton'
 import '../../styles/Workouts.css'
+import axios from 'axios'
 
 export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
     const { workouts } = useWorkouts()
@@ -15,16 +16,29 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
     const linkRef = useRef()
     const workoutIdRef = useRef()
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatchExercise({
-            type: "ADD_EXERCISE",
+        const newExercise = {
             move: moveRef.current.value,
             reps: repsRef.current.value,
             image: imgRef.current.value,
             link: linkRef.current.value,
-            workoutId: workoutIdRef.current.value
-        })
+            workoutId: workoutIdRef.current.value,
+        }
+        try {
+            await (axios.post('api/exercises', newExercise))
+            dispatchExercise({
+                type: "ADD_EXERCISE",
+                move: moveRef.current.value,
+                reps: repsRef.current.value,
+                image: imgRef.current.value,
+                link: linkRef.current.value,
+                workoutId: workoutIdRef.current.value
+            })
+            console.log(newExercise)
+        } catch (err) {
+            console.log(err)
+        }
         handleClose()
     }
 
