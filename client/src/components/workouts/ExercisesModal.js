@@ -7,18 +7,21 @@ import Row from 'react-bootstrap/Row'
 import Container from "react-bootstrap/Container"
 import CloseButton from 'react-bootstrap/CloseButton'
 
+
 function ExerciseModal({ show, WorkoutId, handleClose, WorkoutDay }) {
     const { getWorkoutExercises } = useWorkouts()
     const [exerciseItems, setExerciseItems] = useState([])
 
     useEffect(() => {
-        console.log(WorkoutId)
-        getWorkoutExercises(WorkoutId).then(res => {
-            setExerciseItems(res.data)
-            console.log(res.data)
-        }).catch(error => {
-            console.log(error)
-        })
+        if (show && WorkoutId) {
+            getWorkoutExercises(WorkoutId).then(res => {
+                setExerciseItems(res.data)
+                console.log(res.data)
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

@@ -33,7 +33,7 @@ export function WorkoutsProvider({ children }) {
     }
 
     function getWorkoutExercises(WorkoutId) {
-        return axios.get(`workouts/exercises/${WorkoutId}`)
+        return axios.get(`api/workouts/exercises/${WorkoutId}`)
     }
 
 
@@ -41,10 +41,10 @@ export function WorkoutsProvider({ children }) {
         <WorkoutsContext.Provider value={{
             workouts,
             exercises,
-            getWorkoutExercises,
             getWorkouts,
             postNewWorkout,
-            postNewExercise
+            postNewExercise,
+            getWorkoutExercises
         }}>
             <DispatchContext.Provider value={{
                 dispatchWorkout,
