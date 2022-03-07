@@ -33,7 +33,7 @@ export function WorkoutsProvider({ children }) {
     }
 
     function getWorkoutExercises(WorkoutId) {
-        return axios.get(`api/workouts/exercises/${WorkoutId}`)
+        return axios.get(`api/workouts/exercises/${WorkoutId}`, WorkoutId)
     }
 
 

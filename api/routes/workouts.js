@@ -64,7 +64,7 @@ router.get('/exercises/:id', async (req, res) => {
     try {
         const workout = await Workout.findOne({ id: req.params.id })
         if (workout.id === req.body.id) {
-            const exercises = await Exercise.find({ workoutId: workout._id })
+            const exercises = await Exercise.find({ workoutId: workout.id })
             res.status(200).json(exercises)
         } else {
             res.status(404).json('Exercises not found')

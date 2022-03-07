@@ -25,17 +25,20 @@ export default function WorkoutList() {
     function openViewExerciseModal(workout) {
         toggleShowExercises(true)
         setAddExerciseModalWorkoutId(workout._id)
-        console.log(workout._id)
         setAddExerciseModalWorkoutDay(workout.workoutDay)
     }
 
 
     useEffect(() => {
-        getWorkouts().then(res => {
-            setWorkoutItems(res.data)
-        }).catch(error => {
-            console.log(error)
-        })
+        const loadWorkouts = async () => {
+            await getWorkouts().then(res => {
+                setWorkoutItems(res.data)
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+
+        loadWorkouts()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
