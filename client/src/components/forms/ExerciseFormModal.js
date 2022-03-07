@@ -1,13 +1,12 @@
 import React, { useRef } from 'react';
-import { useWorkouts, useDispatch } from '../../contexts/workouts.context';
+import { useDispatch } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import CloseButton from 'react-bootstrap/CloseButton'
 import '../../styles/Workouts.css'
 
-export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
-    const { workouts } = useWorkouts()
+export default function ExerciseForm({ show, handleClose, defaultWorkoutId, defaultWorkoutDay }) {
     const { dispatchExercise } = useDispatch()
     const moveRef = useRef()
     const repsRef = useRef()
@@ -43,7 +42,10 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
             </Modal.Header>
             <Modal.Body>
                 <Form
+                    defaultValue={defaultWorkoutId}
+                    ref={workoutIdRef}
                     onSubmit={handleSubmit}>
+
                     <Form.Group controlId="move">
                         <Form.Label>
                             Move
@@ -87,19 +89,16 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Workout</Form.Label>
+                        <Form.Label>Workout Day</Form.Label>
                         <Form.Select
                             defaultValue={defaultWorkoutId}
-                            required
                             ref={workoutIdRef}
+                            disabled
                         >
-                            {
-                                workouts.map(workout => (
-                                    <option key={workout._id} value={workout._id}>
-                                        {workout.workoutDay}
-                                    </option>
-                                ))
-                            }
+                            <option key={defaultWorkoutId} value={defaultWorkoutId}>
+                                {defaultWorkoutDay}
+                            </option>
+                            {console.log(defaultWorkoutDay)}
                         </Form.Select>
                     </Form.Group>
                     <Button

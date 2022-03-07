@@ -29,3 +29,5 @@ New Features (Deadline: 2035):
 
 ##### Bugs/Improvements to be Made.
 
+- WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
+- ExerciseFormModal allow Workout Day Options to become dynamic.
