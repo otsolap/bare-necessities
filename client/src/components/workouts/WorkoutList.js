@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// add this above: useEffect
+import React, { useState, useEffect } from 'react';
 import useToggle from '../../hooks/useToggleState'
 import ExercisesModal from './ExercisesModal'
 import ExerciseFormModal from '../forms/ExerciseFormModal'
@@ -12,25 +11,30 @@ export default function WorkoutList() {
     const [showExerciseForm, toggleShowExerciseForm] = useToggle(false)
     const [viewExerciseModalWorkoutId, setViewExerciseModalWorkoutId] = useState()
     const [addExerciseModalWorkoutId, setAddExerciseModalWorkoutId] = useState()
-    const { workouts } = useWorkouts()
-    // add this above: getWorkouts
+    const { getWorkouts } = useWorkouts()
+    const [workoutItems, setWorkoutItems] = useState([])
+
 
     function openAddExerciseModal(workoutId) {
         toggleShowExerciseForm(true)
         setAddExerciseModalWorkoutId(workoutId)
     }
 
-    /*     useEffect(() => {
-            const fetchWorkouts = async () => {
-                await (axios.get('/workouts'))
-            }
-        }) */
+    useEffect(() => {
+        getWorkouts().then(res => {
+            setWorkoutItems(res.data)
+            console.log(res.data)
+        }).catch(error => {
+            console.log(error)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <>
             <Container>
                 <Row>
-                    {workouts.map((workout, i) => (
+                    {workoutItems.map((workout, i) => (
                         <React.Fragment key={i}>
                             <Workout
                                 {...workout}
