@@ -33,13 +33,18 @@ export function WorkoutsProvider({ children }) {
         return axios.post('api/workouts', workout)
     }
 
+    function postNewExercise(exercise) {
+        return axios.post('api/exercises', exercise)
+    }
+
     return (
         <WorkoutsContext.Provider value={{
             workouts,
             exercises,
             getWorkoutExercises,
             getWorkouts,
-            postNewWorkout
+            postNewWorkout,
+            postNewExercise
         }}>
             <DispatchContext.Provider value={{
                 dispatchWorkout,

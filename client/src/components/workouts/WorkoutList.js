@@ -18,7 +18,7 @@ export default function WorkoutList() {
 
     function openAddExerciseModal(workout) {
         toggleShowExerciseForm(true)
-        console.log(workout)
+        console.log(workout._id)
         setAddExerciseModalWorkoutId(workout._id)
         setAddExerciseModalWorkoutDay(workout.workoutDay)
     }

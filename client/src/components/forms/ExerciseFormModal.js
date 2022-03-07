@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useDispatch } from '../../contexts/workouts.context';
+import { useDispatch, useWorkouts } from '../../contexts/workouts.context';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -8,6 +8,7 @@ import '../../styles/Workouts.css'
 
 export default function ExerciseForm({ show, handleClose, defaultWorkoutId, defaultWorkoutDay }) {
     const { dispatchExercise } = useDispatch()
+    const { postNewExercise } = useWorkouts()
     const moveRef = useRef()
     const repsRef = useRef()
     const imgRef = useRef()
@@ -16,16 +17,26 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId, defa
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        /*
-        First we need to get Workouts from MONGODB and then we can create this.
-        */
-        dispatchExercise({
-            type: "ADD_EXERCISE",
+
+        const newExercise = {
             move: moveRef.current.value,
             reps: repsRef.current.value,
             image: imgRef.current.value,
             link: linkRef.current.value,
             workoutId: workoutIdRef.current.value
+        }
+
+        postNewExercise(newExercise).then(res => {
+            dispatchExercise({
+                type: "ADD_EXERCISE",
+                move: moveRef.current.value,
+                reps: repsRef.current.value,
+                image: imgRef.current.value,
+                link: linkRef.current.value,
+                workoutId: workoutIdRef.current.value
+            })
+        }).catch(error => {
+            console.log(error)
         })
         handleClose()
     }
@@ -41,11 +52,7 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId, defa
                 <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
             </Modal.Header>
             <Modal.Body>
-                <Form
-                    defaultValue={defaultWorkoutId}
-                    ref={workoutIdRef}
-                    onSubmit={handleSubmit}>
-
+                <Form onSubmit={handleSubmit}   >
                     <Form.Group controlId="move">
                         <Form.Label>
                             Move
@@ -93,12 +100,10 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId, defa
                         <Form.Select
                             defaultValue={defaultWorkoutId}
                             ref={workoutIdRef}
-                            disabled
                         >
                             <option key={defaultWorkoutId} value={defaultWorkoutId}>
                                 {defaultWorkoutDay}
                             </option>
-                            {console.log(defaultWorkoutDay)}
                         </Form.Select>
                     </Form.Group>
                     <Button

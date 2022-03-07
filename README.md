@@ -31,3 +31,6 @@ New Features (Deadline: 2035):
 
 - WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
 - ExerciseFormModal allow Workout Day Options to become dynamic.
+- MongoDB is sorting by _id but we need to make sure there can only be 1 of exact date.
+- Adding new Workout --> Page needs to refresh.
+- TODO: Sort workout days by proper calender form. (Do this in the backend)
