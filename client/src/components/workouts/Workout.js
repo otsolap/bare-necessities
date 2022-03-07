@@ -7,14 +7,14 @@ import Button from 'react-bootstrap/Button'
 import '../../styles/Workouts.css'
 
 
-function Workout({ id, completed, workoutType, workoutDay, onViewExercisesClick, onAddExercisesClick }) {
+function Workout({ _id, completed, workoutType, workoutDay, onViewExercisesClick, onAddExercisesClick }) {
     const { dispatchWorkout } = useDispatch()
 
     function toggleWorkout(e) {
         e.stopPropagation()
         dispatchWorkout({
             type: "TOGGLE_WORKOUT",
-            id: id
+            id: _id
         })
     }
 
@@ -39,7 +39,7 @@ function Workout({ id, completed, workoutType, workoutDay, onViewExercisesClick,
                         </Form.Check.Label>
                         <Form.Check
                             type="switch"
-                            id={id}
+                            id={_id}
                             checked={completed}
                             onClick={toggleWorkout}
                         />

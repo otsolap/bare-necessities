@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import CloseButton from 'react-bootstrap/CloseButton'
 import '../../styles/Workouts.css'
 
-export default function ExerciseForm({ show, handleClose, defaultWorkoutId, defaultWorkoutDay }) {
+export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay }) {
     const { dispatchExercise } = useDispatch()
     const { postNewExercise } = useWorkouts()
     const moveRef = useRef()
@@ -98,11 +98,11 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId, defa
                     <Form.Group>
                         <Form.Label>Workout Day</Form.Label>
                         <Form.Select
-                            defaultValue={defaultWorkoutId}
+                            defaultValue={WorkoutId}
                             ref={workoutIdRef}
                         >
-                            <option key={defaultWorkoutId} value={defaultWorkoutId}>
-                                {defaultWorkoutDay}
+                            <option key={WorkoutId} value={WorkoutId}>
+                                {WorkoutDay}
                             </option>
                         </Form.Select>
                     </Form.Group>

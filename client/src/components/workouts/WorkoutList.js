@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row"
 
 export default function WorkoutList() {
     const [showExerciseForm, toggleShowExerciseForm] = useToggle(false)
-    const [viewExerciseModalWorkoutId, setViewExerciseModalWorkoutId] = useState()
+    const [showExercises, toggleShowExercises] = useToggle(false)
     const [addExerciseModalWorkoutId, setAddExerciseModalWorkoutId] = useState()
     const [addExerciseModalWorkoutDay, setAddExerciseModalWorkoutDay] = useState()
     const { getWorkouts } = useWorkouts()
@@ -18,10 +18,16 @@ export default function WorkoutList() {
 
     function openAddExerciseModal(workout) {
         toggleShowExerciseForm(true)
-        console.log(workout._id)
         setAddExerciseModalWorkoutId(workout._id)
         setAddExerciseModalWorkoutDay(workout.workoutDay)
     }
+
+    function openViewExerciseModal(workout) {
+        toggleShowExercises(true)
+        setAddExerciseModalWorkoutId(workout._id)
+        setAddExerciseModalWorkoutDay(workout.workoutDay)
+    }
+
 
     useEffect(() => {
         getWorkouts().then(res => {
@@ -42,19 +48,21 @@ export default function WorkoutList() {
                                 {...workout}
                                 key={workout._id}
                                 onAddExercisesClick={() => openAddExerciseModal(workout)}
-                                onViewExercisesClick={() => setViewExerciseModalWorkoutId(workout._id)}
+                                onViewExercisesClick={() => openViewExerciseModal(workout)}
                             />
                             <ExerciseFormModal
                                 key={`ExerciseForm-${workout._id}`}
                                 show={showExerciseForm}
-                                defaultWorkoutDay={addExerciseModalWorkoutDay}
-                                defaultWorkoutId={addExerciseModalWorkoutId}
+                                WorkoutDay={addExerciseModalWorkoutDay}
+                                WorkoutId={addExerciseModalWorkoutId}
                                 handleClose={() => toggleShowExerciseForm(false)}
                             />
                             <ExercisesModal
+                                show={showExercises}
                                 key={`ExerciseModal-${workout._id}`}
-                                workoutId={viewExerciseModalWorkoutId}
-                                handleClose={() => setViewExerciseModalWorkoutId()}
+                                WorkoutDay={addExerciseModalWorkoutDay}
+                                WorkoutId={addExerciseModalWorkoutId}
+                                handleClose={() => toggleShowExercises(false)}
                             />
                         </React.Fragment>
                     ))}

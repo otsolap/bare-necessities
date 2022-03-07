@@ -51,6 +51,8 @@ export default function WorkoutForm({ show, handleClose }) {
         // refactor this to not do handleclose if nothing is dispatched.
         // like there is no new state. Right now it closes even if you can't add new workout
         handleClose()
+        // I use this to refresh the page when new Workout has been added.
+        window.location.reload()
     }
 
     return (

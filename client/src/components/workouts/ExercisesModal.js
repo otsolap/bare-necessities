@@ -7,32 +7,32 @@ import Row from 'react-bootstrap/Row'
 import Container from "react-bootstrap/Container"
 import CloseButton from 'react-bootstrap/CloseButton'
 
-function ExerciseModal({ workoutId, handleClose }) {
-    const { workouts, getWorkoutExercises } = useWorkouts()
-    const exercises = getWorkoutExercises(workoutId)
-    const workout = workoutId ? workouts.find(w => w.id === workoutId) : "Uncategorized"
+function ExerciseModal({ show, workoutId, handleClose, WorkoutDay }) {
+    // const { workouts, getWorkoutExercises } = useWorkouts()
+    // const exercises = getWorkoutExercises(workoutId)
+    // const workout = workoutId ? workouts.find(w => w.id === workoutId) : "Uncategorized"
 
 
     return (
         <Modal
             fullscreen={'md-down'}
             className="modal-background"
-            show={workoutId != null}>
+            show={show}>
             <Modal.Header className="mb-1 brand">
-                <Modal.Title className="header-title">Exercises - {workout.workoutDay}</Modal.Title>
+                <Modal.Title className="header-title">Exercises - {WorkoutDay}</Modal.Title>
                 <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
             </Modal.Header>
             <Modal.Body>
                 <Container>
                     <Row>
-                        {exercises.map((exercise, i) => (
+                        {/*           {exercises.map((exercise, i) => (
                             <React.Fragment key={i}>
                                 <ExerciseItem
                                     {...exercise}
                                     key={exercise.id}
                                 />
                             </React.Fragment>
-                        ))}
+                        ))} */}
                     </Row>
                 </Container>
             </Modal.Body>
