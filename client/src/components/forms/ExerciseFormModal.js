@@ -95,7 +95,7 @@ export default function ExerciseForm({ show, handleClose, defaultWorkoutId }) {
                         >
                             {
                                 workouts.map(workout => (
-                                    <option key={workout.id} value={workout.id}>
+                                    <option key={workout._id} value={workout._id}>
                                         {workout.workoutDay}
                                     </option>
                                 ))

@@ -15,15 +15,14 @@ export default function WorkoutList() {
     const [workoutItems, setWorkoutItems] = useState([])
 
 
-    function openAddExerciseModal(workoutId) {
+    function openAddExerciseModal(workout) {
         toggleShowExerciseForm(true)
-        setAddExerciseModalWorkoutId(workoutId)
+        setAddExerciseModalWorkoutId(workout)
     }
 
     useEffect(() => {
         getWorkouts().then(res => {
             setWorkoutItems(res.data)
-            console.log(res.data)
         }).catch(error => {
             console.log(error)
         })
@@ -38,9 +37,9 @@ export default function WorkoutList() {
                         <React.Fragment key={i}>
                             <Workout
                                 {...workout}
-                                key={workout.id}
-                                onAddExercisesClick={() => openAddExerciseModal(workout.id)}
-                                onViewExercisesClick={() => setViewExerciseModalWorkoutId(workout.id)}
+                                key={workout._id}
+                                onAddExercisesClick={() => openAddExerciseModal(workout._id)}
+                                onViewExercisesClick={() => setViewExerciseModalWorkoutId(workout._id)}
                             />
                         </React.Fragment>
                     ))}

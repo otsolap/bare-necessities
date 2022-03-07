@@ -19,7 +19,6 @@ function Exercise({ id, move, reps, image, link, completed }) {
             type: "TOGGLE_EXERCISE",
             id: id
         })
-        console.log(id)
     }
 
     return (
