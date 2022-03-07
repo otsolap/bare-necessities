@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/Workouts.css';
 import { useWorkouts } from '../../contexts/workouts.context'
 import ExerciseItem from './ExerciseItem';
@@ -7,17 +7,28 @@ import Row from 'react-bootstrap/Row'
 import Container from "react-bootstrap/Container"
 import CloseButton from 'react-bootstrap/CloseButton'
 
-function ExerciseModal({ show, workoutId, handleClose, WorkoutDay }) {
-    // const { workouts, getWorkoutExercises } = useWorkouts()
-    // const exercises = getWorkoutExercises(workoutId)
-    // const workout = workoutId ? workouts.find(w => w.id === workoutId) : "Uncategorized"
+function ExerciseModal({ show, WorkoutId, handleClose, WorkoutDay }) {
+    const { getWorkoutExercises } = useWorkouts()
+    const [exerciseItems, setExerciseItems] = useState([])
+
+    useEffect(() => {
+        console.log(WorkoutId)
+        getWorkoutExercises(WorkoutId).then(res => {
+            setExerciseItems(res.data)
+            console.log(res.data)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [])
+
 
 
     return (
         <Modal
             fullscreen={'md-down'}
             className="modal-background"
-            show={show}>
+            show={show}
+        >
             <Modal.Header className="mb-1 brand">
                 <Modal.Title className="header-title">Exercises - {WorkoutDay}</Modal.Title>
                 <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
@@ -25,14 +36,14 @@ function ExerciseModal({ show, workoutId, handleClose, WorkoutDay }) {
             <Modal.Body>
                 <Container>
                     <Row>
-                        {/*           {exercises.map((exercise, i) => (
+                        {exerciseItems.map((exercise, i) => (
                             <React.Fragment key={i}>
                                 <ExerciseItem
                                     {...exercise}
-                                    key={exercise.id}
+                                    key={exercise._id}
                                 />
                             </React.Fragment>
-                        ))} */}
+                        ))}
                     </Row>
                 </Container>
             </Modal.Body>

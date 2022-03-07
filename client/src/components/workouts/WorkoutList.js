@@ -25,6 +25,7 @@ export default function WorkoutList() {
     function openViewExerciseModal(workout) {
         toggleShowExercises(true)
         setAddExerciseModalWorkoutId(workout._id)
+        console.log(workout._id)
         setAddExerciseModalWorkoutDay(workout.workoutDay)
     }
 

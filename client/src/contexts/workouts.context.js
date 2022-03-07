@@ -20,11 +20,6 @@ export function WorkoutsProvider({ children }) {
     const [workouts, dispatchWorkout] = useLocalStorageReducer("workouts", defaultWorkouts, workoutReducer)
     const [exercises, dispatchExercise] = useLocalStorageReducer("exercises", defaultExercises, workoutReducer)
 
-
-    function getWorkoutExercises(workoutId) {
-        return exercises.filter(exercise => exercise.workoutId === workoutId)
-    }
-
     function getWorkouts() {
         return axios.get('api/workouts')
     }
@@ -36,6 +31,11 @@ export function WorkoutsProvider({ children }) {
     function postNewExercise(exercise) {
         return axios.post('api/exercises', exercise)
     }
+
+    function getWorkoutExercises(WorkoutId) {
+        return axios.get(`workouts/exercises/${WorkoutId}`)
+    }
+
 
     return (
         <WorkoutsContext.Provider value={{
