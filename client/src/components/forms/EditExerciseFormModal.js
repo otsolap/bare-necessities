@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
-import { useDispatch } from '../../contexts/workouts.context';
+import { useWorkouts, useDispatch } from '../../contexts/workouts.context';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-function EditExerciseFormModal({ _id, move, reps, image, link, toggleEditForm }) {
+function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) {
     const { dispatchExercise } = useDispatch()
+    const { editExercise } = useWorkouts()
     const moveRef = useRef()
     const repsRef = useRef()
     const imgRef = useRef()
@@ -12,14 +13,32 @@ function EditExerciseFormModal({ _id, move, reps, image, link, toggleEditForm })
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatchExercise({
-            type: "EDIT_EXERCISE",
-            id: _id,
+
+        const updatedExercise = {
+            id: id,
             newMove: moveRef.current.value,
             newReps: repsRef.current.value,
             newImage: imgRef.current.value,
             newLink: linkRef.current.value,
+        }
+
+        console.log(editExercise(id, updatedExercise))
+        console.log(id)
+        console.log(updatedExercise)
+
+        editExercise(id, updatedExercise).then(res => {
+            dispatchExercise({
+                type: "EDIT_EXERCISE",
+                id: id,
+                newMove: moveRef.current.value,
+                newReps: repsRef.current.value,
+                newImage: imgRef.current.value,
+                newLink: linkRef.current.value,
+            })
+        }).catch(error => {
+            console.log(error)
         })
+
         toggleEditForm();
     }
 

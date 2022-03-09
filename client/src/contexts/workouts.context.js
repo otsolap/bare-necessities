@@ -3,8 +3,8 @@ import workoutReducer from '../reducer/workout.reducer'
 import useLocalStorageReducer from '../hooks/useLocalStorageReducer'
 import axios from 'axios'
 
-const defaultWorkouts = [{ id: "1", workoutDay: "Monday", workoutType: "Legs", workoutDone: false }]
-const defaultExercises = [{ workoutId: "1", id: 11, move: "Pushups", reps: "3x10-15", link: "https://www.youtube.com/watch?v=Ee1YkE1jlyo", image: "https://i.ytimg.com/vi/Ee1YkE1jlyo/hqdefault.jpg", completed: false, }]
+const defaultWorkouts = [{ _id: "1", workoutDay: "Monday", workoutType: "Legs", workoutDone: false }]
+const defaultExercises = [{ workoutId: "1", _id: 11, move: "Pushups", reps: "3x10-15", link: "https://www.youtube.com/watch?v=Ee1YkE1jlyo", image: "https://i.ytimg.com/vi/Ee1YkE1jlyo/hqdefault.jpg", completed: false, }]
 const WorkoutsContext = createContext();
 const DispatchContext = createContext();
 
@@ -32,9 +32,15 @@ export function WorkoutsProvider({ children }) {
         return axios.post('api/exercises', exercise)
     }
 
+    function editExercise(id, exercise) {
+        return axios.put(`api/exercises/${id}`, exercise)
+    }
+
+
     function getWorkoutExercises(WorkoutId) {
         return axios.get(`api/workouts/exercises/${WorkoutId}`)
     }
+
 
 
     return (
@@ -44,6 +50,7 @@ export function WorkoutsProvider({ children }) {
             getWorkouts,
             postNewWorkout,
             postNewExercise,
+            editExercise,
             getWorkoutExercises
         }}>
             <DispatchContext.Provider value={{

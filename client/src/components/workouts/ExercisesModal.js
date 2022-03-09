@@ -20,10 +20,11 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
                 console.log(error)
             })
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+
         //   if (show === true) {
         loadExecises()
         //  }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [WorkoutId])
 
     return (
@@ -45,7 +46,6 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
                                     {...exercise}
                                     key={exercise._id}
                                 />
-                                {console.log(exercise)}
                             </React.Fragment>
                         ))}
                     </Row>

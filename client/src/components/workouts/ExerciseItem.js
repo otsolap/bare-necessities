@@ -22,10 +22,8 @@ function Exercise({ _id, move, reps, image, link, completed }) {
     }
 
     return (
-
         <Col
             className="exercise-column mb-2"
-            key={_id}
             sm={12}
         >
             {isEditing ? (
