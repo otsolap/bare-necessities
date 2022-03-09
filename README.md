@@ -13,7 +13,7 @@ Mern-Stack application where you can retrieve and send data from frontend to bac
 
 #### Bugs to fix
 
-- Updating an Exercise works technically but it requires a page refresh. The whole point of updating exercises with PUT would be that the page shouldn't refresh. --> Study what you need to do. I guess each PUT call would require a GET call.
+- Updating an Exercise works technically but it requires a page refresh. The whole point of updating exercises with PUT would be that the page shouldn't refresh. --> Study what you need to do. I guess each PUT call would require a GET call. <-- Not get but Fetch?
 
 - WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
 
