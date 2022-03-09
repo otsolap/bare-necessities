@@ -28,7 +28,7 @@ const reducer = (state, action) => {
 
         case "EDIT_EXERCISE":
             return state.map(exercise =>
-                exercise.id === action.id ? {
+                exercise._id === action._id ? {
                     ...exercise,
                     move: action.newMove,
                     reps: action.newReps,
@@ -38,7 +38,7 @@ const reducer = (state, action) => {
 
         case "TOGGLE_EXERCISE":
             return state.map(exercise =>
-                exercise.id === action.id ? { ...exercise, completed: !exercise.completed } : exercise)
+                exercise._id === action._id ? { ...exercise, completed: !exercise.completed } : exercise)
 
 
         default:

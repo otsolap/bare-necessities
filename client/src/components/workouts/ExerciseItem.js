@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
-function Exercise({ id, move, reps, image, link, completed }) {
+function Exercise({ _id, move, reps, image, link, completed }) {
     const { dispatchExercise } = useDispatch()
     const [isEditing, toggle] = useToggle(false)
 
@@ -17,7 +17,7 @@ function Exercise({ id, move, reps, image, link, completed }) {
         e.stopPropagation()
         dispatchExercise({
             type: "TOGGLE_EXERCISE",
-            id: id
+            id: _id
         })
     }
 
@@ -25,7 +25,7 @@ function Exercise({ id, move, reps, image, link, completed }) {
 
         <Col
             className="exercise-column mb-2"
-            key={id}
+            key={_id}
             sm={12}
         >
             {isEditing ? (
@@ -34,7 +34,7 @@ function Exercise({ id, move, reps, image, link, completed }) {
                     reps={reps}
                     link={link}
                     image={image}
-                    id={id}
+                    id={_id}
                     toggleEditForm={toggle}
                 />) : (
                 <>
@@ -52,7 +52,7 @@ function Exercise({ id, move, reps, image, link, completed }) {
                                 <Form.Check
                                     className="mb-1"
                                     type="switch"
-                                    id={id}
+                                    id={_id}
                                     checked={completed}
                                     onClick={toggleExercise}
                                 />

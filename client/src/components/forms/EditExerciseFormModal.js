@@ -3,7 +3,7 @@ import { useDispatch } from '../../contexts/workouts.context';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) {
+function EditExerciseFormModal({ _id, move, reps, image, link, toggleEditForm }) {
     const { dispatchExercise } = useDispatch()
     const moveRef = useRef()
     const repsRef = useRef()
@@ -14,7 +14,7 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
         e.preventDefault();
         dispatchExercise({
             type: "EDIT_EXERCISE",
-            id: id,
+            id: _id,
             newMove: moveRef.current.value,
             newReps: repsRef.current.value,
             newImage: imgRef.current.value,

@@ -15,9 +15,7 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
     useEffect(() => {
         const loadExecises = async () => {
             await getWorkoutExercises(WorkoutId).then(res => {
-                console.log(res)
                 setExerciseItems(res.data)
-                console.log(res.data)
             }).catch(error => {
                 console.log(error)
             })
@@ -27,8 +25,6 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
         loadExecises()
         //  }
     }, [WorkoutId])
-
-
 
     return (
         <Modal
@@ -49,6 +45,7 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
                                     {...exercise}
                                     key={exercise._id}
                                 />
+                                {console.log(exercise)}
                             </React.Fragment>
                         ))}
                     </Row>

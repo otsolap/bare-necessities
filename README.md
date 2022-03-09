@@ -29,14 +29,12 @@ New Features (Deadline: 2035):
 
 ##### Bugs/Improvements to be Made.
 
-- ExercisesModal is broken. Axios call fails.
+- UseEffect on Exercise Modal triggers when Modal show is true. This needs to be done. --> Once this is done add a Loading animation that appears until Exercises appear.
 
 - WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
 
 - ExerciseFormModal allow Workout Day Options to become dynamic.
 
 - MongoDB is sorting by _id but we need to make sure there can only be 1 of exact date.
-
-- Adding new Workout --> Page needs to refresh.
 
 - TODO: Sort workout days by proper calender form. (Do this in the backend)
