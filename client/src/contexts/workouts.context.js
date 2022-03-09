@@ -20,7 +20,6 @@ export function WorkoutsProvider({ children }) {
     const [workouts, dispatchWorkout] = useLocalStorageReducer("workouts", defaultWorkouts, workoutReducer)
     const [exercises, dispatchExercise] = useLocalStorageReducer("exercises", defaultExercises, workoutReducer)
 
-
     return (
         <WorkoutsContext.Provider value={{
             workouts,

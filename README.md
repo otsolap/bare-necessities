@@ -15,8 +15,6 @@ Mern-Stack application where you can retrieve and send data from frontend to bac
 
 - Updating an Exercise works technically but it requires a page refresh. The whole point of updating exercises with PUT would be that the page shouldn't refresh. --> Study what you need to do. I guess each PUT call would require a GET call.
 
-- For some reason only 1 Workouts exercises can be found. Bug exists in both App and Postman --> Problem in API code.
-
 - WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
 
 ### Improvements needed to code
