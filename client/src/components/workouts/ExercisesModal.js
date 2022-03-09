@@ -14,20 +14,19 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
 
     useEffect(() => {
         const loadExecises = async () => {
-            console.log(WorkoutId)
-            console.log(getWorkoutExercises(WorkoutId))
             await getWorkoutExercises(WorkoutId).then(res => {
+                console.log(res)
                 setExerciseItems(res.data)
                 console.log(res.data)
             }).catch(error => {
                 console.log(error)
             })
         }
-        if (WorkoutId) {
-            loadExecises()
-        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        //   if (show === true) {
+        loadExecises()
+        //  }
+    }, [WorkoutId])
 
 
 
