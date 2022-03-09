@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal'
 import Row from 'react-bootstrap/Row'
 import Container from "react-bootstrap/Container"
 import CloseButton from 'react-bootstrap/CloseButton'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
@@ -40,6 +41,7 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
             <Modal.Body>
                 <Container>
                     <Row>
+                        {exerciseItems.length <= 1 && <Spinner animation="border" variant="warning" />}
                         {exerciseItems.map((exercise, i) => (
                             <React.Fragment key={i}>
                                 <ExerciseItem

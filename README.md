@@ -8,18 +8,26 @@ Mern-Stack application where you can retrieve and send data from frontend to bac
 
 ### Next Step
 
-* Styling the frontend
 * React Routes - Creating 2 pages.
 * Google Docs clone.
 
+#### Bugs to fix
 
-#### Learning Curve
+- Updating an Exercise works technically but it requires a page refresh. The whole point of updating exercises with PUT would be that the page shouldn't refresh. --> Study what you need to do. I guess each PUT call would require a GET call.
 
-- Context API with actions, useReducer and proper React Mern-stack architecture.
+- For some reason only 1 Workouts exercises can be found. Bug exists in both App and Postman --> Problem in API code.
+
+- WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
+
+### Improvements needed to code
+
+- ExerciseFormModal allow Workout Day Options to become dynamic.
+
+- MongoDB is sorting by _id but we need to make sure there can only be 1 of exact date.
+
+- TODO: Sort workout days by proper calender form. (Do this in the backend)
 
 #### Long-term planning
-
-- Refactor LocalStorage to MERN-stack.
 
 New Features (Deadline: 2035):
 
@@ -27,16 +35,5 @@ New Features (Deadline: 2035):
 - Calender
 - Daily goals.
 
-##### Bugs/Improvements to be Made.
+### Random Notes:
 
-- UseEffect on Exercise Modal triggers when Modal show is true. This needs to be done. --> Once this is done add a Loading animation that appears until Exercises appear.
-
-- Updating an Exercise works technically but it requires a page refresh. The whole point of updating exercises with PUT would be that the page shouldn't refresh. --> Study what you need to do. I guess each PUT call would require a GET call.
-
-- WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
-
-- ExerciseFormModal allow Workout Day Options to become dynamic.
-
-- MongoDB is sorting by _id but we need to make sure there can only be 1 of exact date.
-
-- TODO: Sort workout days by proper calender form. (Do this in the backend)
