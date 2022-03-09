@@ -31,6 +31,8 @@ New Features (Deadline: 2035):
 
 - UseEffect on Exercise Modal triggers when Modal show is true. This needs to be done. --> Once this is done add a Loading animation that appears until Exercises appear.
 
+- Updating an Exercise works technically but it requires a page refresh. The whole point of updating exercises with PUT would be that the page shouldn't refresh. --> Study what you need to do. I guess each PUT call would require a GET call.
+
 - WorkoutFormModal needs proper required checkers. Submit button should be disabled unless options are filled.
 
 - ExerciseFormModal allow Workout Day Options to become dynamic.

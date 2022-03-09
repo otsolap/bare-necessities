@@ -21,9 +21,9 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
             })
         }
 
-        //   if (show === true) {
-        loadExecises()
-        //  }
+        if (show === true) {
+            loadExecises()
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [WorkoutId])
 

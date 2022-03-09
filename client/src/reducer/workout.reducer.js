@@ -28,13 +28,14 @@ const reducer = (state, action) => {
 
         case "EDIT_EXERCISE":
             return state.map(exercise =>
-                exercise._id === action.id ? {
+                exercise._id === action._id ? {
                     ...exercise,
                     move: action.newMove,
                     reps: action.newReps,
                     link: action.newLink,
                     image: action.newImage,
                 } : exercise);
+
 
         case "TOGGLE_EXERCISE":
             return state.map(exercise =>

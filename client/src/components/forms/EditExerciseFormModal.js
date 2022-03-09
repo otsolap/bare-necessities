@@ -16,20 +16,16 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
 
         const updatedExercise = {
             id: id,
-            newMove: moveRef.current.value,
-            newReps: repsRef.current.value,
-            newImage: imgRef.current.value,
-            newLink: linkRef.current.value,
+            move: moveRef.current.value,
+            reps: repsRef.current.value,
+            image: imgRef.current.value,
+            link: linkRef.current.value,
         }
-
-        console.log(editExercise(id, updatedExercise))
-        console.log(id)
-        console.log(updatedExercise)
 
         editExercise(id, updatedExercise).then(res => {
             dispatchExercise({
                 type: "EDIT_EXERCISE",
-                id: id,
+                _id: id,
                 newMove: moveRef.current.value,
                 newReps: repsRef.current.value,
                 newImage: imgRef.current.value,
