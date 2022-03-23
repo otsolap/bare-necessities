@@ -1,23 +1,24 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
+
 import logo from '../../imgs/Avatar_sm.png'
 
 export default function Nav() {
     return (
-        <Navbar expand="lg" className="brand">
+        <nav className="brand py-2">
             <div className="container">
-                <Navbar.Brand href="#"
+                <a href="#"
+                    className="no-underline inline-block"
                 >
                     <img
                         src={logo}
                         width="80px"
                         height="80px"
-                        className="d-inline-block"
+                        className="aspect-square object-cover"
                         alt="Bare Necessities"
                     />
                     <h6>Bare Necessities</h6>
-                </Navbar.Brand>
+                </a>
             </div>
-        </Navbar>
+        </nav>
     )
 }
