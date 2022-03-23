@@ -42,9 +42,9 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay 
     }
 
     return (
-        <Modal
+        <div
             fullscreen={'md-down'}
-            className="modal-background"
+            className="modalx modal-background"
             show={show}
         >
             <Modal.Header className="mb-1 brand">
@@ -115,6 +115,6 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay 
                     </Button>
                 </Form>
             </Modal.Body>
-        </Modal>
+        </div>
     );
 }
