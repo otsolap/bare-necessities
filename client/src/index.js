@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FitnessApp from './FitnessApp';
-// Bootstrap's CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { WorkoutsProvider } from './contexts/workouts.context';
 
 

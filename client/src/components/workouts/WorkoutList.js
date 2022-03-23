@@ -55,6 +55,7 @@ export default function WorkoutList() {
                             />
                             <ExerciseFormModal
                                 key={`ExerciseForm-${workout._id}`}
+                                id={`ExerciseForm-${workout._id}`}
                                 show={showExerciseForm}
                                 WorkoutDay={addExerciseModalWorkoutDay}
                                 WorkoutId={addExerciseModalWorkoutId}
