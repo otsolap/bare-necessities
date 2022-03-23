@@ -23,7 +23,7 @@ function Exercise({ _id, move, reps, image, link, completed }) {
 
     return (
         <Col
-            className="exercise-column mb-2"
+            className="border-b border-white mb-2"
             sm={12}
         >
             {isEditing ? (
@@ -36,9 +36,9 @@ function Exercise({ _id, move, reps, image, link, completed }) {
                     toggleEditForm={toggle}
                 />) : (
                 <>
-                    <Card className="exerciseCard">
+                    <Card className="bg-primary">
                         <Card.Header>
-                            {image ? <div className="image-container"><Image fluid src={image} alt={move} /> </div> : ""}
+                            {image ? <div className="border border-white"><Image fluid src={image} alt={move} /> </div> : ""}
                             <Card.Text><em>Move: </em> {link ? <a href={link} rel="noopener noreferrer" target="_blank">{move} </a> : <span>{move} </span>}</Card.Text>
                             <Card.Text><em>Reps: </em>{reps}</Card.Text>
                         </Card.Header>

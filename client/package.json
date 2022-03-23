@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "Fitness App | Client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "npx tailwindcss -i ./src/FitnessApp.css -o ./public/styles.css --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +40,10 @@
       "last 1 safari version"
     ]
   },
-  "allowedHosts": "all"
+  "allowedHosts": "all",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
+  }
 }

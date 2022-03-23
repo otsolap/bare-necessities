@@ -21,7 +21,7 @@ function Workout({ _id, completed, workoutType, workoutDay, onViewExercisesClick
     return (
         <Col sm={12} md={4} className="my-3">
             <Card
-                className="workout-card text-center">
+                className="bg-primary border border-white text-center">
                 <Card.Header>
                     <Card.Text><em>Day:</em>{workoutDay}</Card.Text>
                     <Card.Text> <em>Type:</em>{workoutType}</Card.Text>

@@ -1,8 +1,8 @@
-:root {
-	--main-bg-color: #05090b;
-	--main-brand-bg-color: #e39b41;
-	--brand-white-color: #faf7f2;
-}
+@import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
 	margin: 0;
@@ -16,12 +16,11 @@ body,
 	height: 100%;
 	width: 100%;
 	font-family: 'Hind Guntur', sans-serif;
-	background-color: var(--main-bg-color);
+	@apply bg-black text-white;
 }
 
 .brand {
-	background-color: var(--main-brand-bg-color);
-	color: var(--brand-white-color);
+	@apply bg-primary text-white;
 }
 
 h1,
@@ -35,5 +34,5 @@ span,
 label,
 em,
 p {
-	color: var(--brand-white-color);
+	@apply text-white;
 }
