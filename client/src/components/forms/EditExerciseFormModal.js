@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useWorkouts, useDispatch } from '../../contexts/workouts.context';
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+
 
 function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) {
     const { dispatchExercise } = useDispatch()
@@ -39,60 +38,66 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
     }
 
     return (
-        <Form
+        <form
             onSubmit={handleSubmit}>
-            <Form.Group controlId="newMove">
-                <Form.Label>
+            <div className="container">
+                <label className="mb-1" for="newMove">
                     Move
-                </Form.Label>
-                <Form.Control
+                </label>
+                <input
+                    id="newMove"
                     name="newMove"
                     ref={moveRef}
                     defaultValue={move}
-                    className='mb-1'
+                    className='mb-1 form-input'
                 />
-            </Form.Group>
-            <Form.Group controlId="newReps">
-                <Form.Label>
+            </div>
+            <div className="container">
+                <label className="mb-1" for="newReps">
                     Rep range
-                </Form.Label>
-                <Form.Control
+                </label>
+                <input
+                    id="newReps"
                     name="newReps"
                     ref={repsRef}
                     defaultValue={reps}
-                    className="mb-1"
+                    className="mb-1 form-input"
                 />
-            </Form.Group>
-            <Form.Group controlId="newExerciseImg">
-                <Form.Label>
+            </div>
+            <div className="container">
+                <label className="mb-1" for="newExerciseImg">
                     Image
-                </Form.Label>
-                <Form.Control
+                </label>
+                <input
+                    id="newExerciseImg"
                     name="newExerciseImg"
                     ref={imgRef}
                     defaultValue={image}
-                    className="mb-1"
+                    className="mb-1 form-input"
                 />
-            </Form.Group>
-            <Form.Group controlId="newExerciseLink">
-                <Form.Label>
+            </div>
+            <div className="container">
+                <label className="mb-1" for="newExerciseLink">
                     Link
-                </Form.Label>
-                <Form.Control
+                </label>
+                <input
+                    id="newExerciseLink"
                     name="newExerciseLink"
                     ref={linkRef}
                     defaultValue={link}
-                    className="mb-1"
+                    className="mb-1 form-input"
                 />
-            </Form.Group>
-            <Button
-                variant="outline-success"
-                className="mt-3 mb-3"
-                type="submit"
-            >
-                Update Exercise
-            </Button>
-        </Form>
+            </div>
+            <div className="container">
+                <button
+                    variant="outline-success"
+                    className="btn mt-3 mb-3"
+                    type="submit"
+                >
+                    Update Exercise
+                </button>
+            </div>
+        </form>
     );
 }
 
