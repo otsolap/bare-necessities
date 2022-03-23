@@ -1,12 +1,11 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
 import logo from '../../imgs/Avatar_sm.png'
 
 export default function Nav() {
     return (
         <Navbar expand="lg" className="brand">
-            <Container>
+            <div className="container">
                 <Navbar.Brand href="#"
                 >
                     <img
@@ -18,7 +17,7 @@ export default function Nav() {
                     />
                     <h6>Bare Necessities</h6>
                 </Navbar.Brand>
-            </Container>
+            </div>
         </Navbar>
     )
 }

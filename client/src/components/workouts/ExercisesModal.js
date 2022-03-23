@@ -4,7 +4,6 @@ import { useWorkouts } from '../../contexts/workouts.context'
 import ExerciseItem from './ExerciseItem';
 import Modal from 'react-bootstrap/Modal'
 import Row from 'react-bootstrap/Row'
-import Container from "react-bootstrap/Container"
 import CloseButton from 'react-bootstrap/CloseButton'
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -39,7 +38,7 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
                 <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
             </Modal.Header>
             <Modal.Body>
-                <Container>
+                <div className="container">
                     <Row>
                         {exerciseItems.length <= 1 && <Spinner animation="border" variant="warning" />}
                         {exerciseItems.map((exercise, i) => (
@@ -51,7 +50,7 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
                             </React.Fragment>
                         ))}
                     </Row>
-                </Container>
+                </div>
             </Modal.Body>
         </Modal>
     );

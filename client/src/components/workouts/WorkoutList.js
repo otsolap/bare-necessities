@@ -4,7 +4,6 @@ import ExercisesModal from './ExercisesModal'
 import ExerciseFormModal from '../forms/ExerciseFormModal'
 import { useWorkouts } from '../../contexts/workouts.context';
 import Workout from './Workout';
-import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 
 export default function WorkoutList() {
@@ -44,7 +43,7 @@ export default function WorkoutList() {
 
     return (
         <>
-            <Container>
+            <div className="container">
                 <Row>
                     {workoutItems.map((workout, i) => (
                         <React.Fragment key={i}>
@@ -71,7 +70,7 @@ export default function WorkoutList() {
                         </React.Fragment>
                     ))}
                 </Row>
-            </Container>
+            </div>
         </>
     )
 }

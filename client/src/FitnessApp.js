@@ -10,7 +10,7 @@ function FitnessApp() {
   const [showWorkoutForm, toggleShowWorkoutForm] = useToggle(false)
 
   return (
-    <div>
+    <>
       <Navbar />
       <Button
         variant="success"
@@ -23,7 +23,7 @@ function FitnessApp() {
         handleClose={() => toggleShowWorkoutForm(false)}
       />
       <Footer />
-    </div >
+    </>
   );
 }
 
