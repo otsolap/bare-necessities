@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../styles/Workouts.css';
 import { useWorkouts } from '../../contexts/workouts.context'
 import ExerciseItem from './ExerciseItem';
-import Modal from 'react-bootstrap/Modal'
-import Row from 'react-bootstrap/Row'
-import CloseButton from 'react-bootstrap/CloseButton'
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from '../../util/Spinner'
 
 
 function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
@@ -28,31 +25,39 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
     }, [WorkoutId])
 
     return (
-        <Modal
-            fullscreen={'md-down'}
-            className="modal-background"
-            show={show}
-        >
-            <Modal.Header className="mb-1 brand">
-                <h4 className="header-title">Exercises - {WorkoutDay}</h4>
-                <button className="btn-close" onClick={handleClose} aria-label="Hide">X</button>
-            </Modal.Header>
-            <Modal.Body>
-                <div className="container">
-                    <Row>
-                        {exerciseItems.length <= 1 && <Spinner animation="border" variant="warning" />}
-                        {exerciseItems.map((exercise, i) => (
-                            <React.Fragment key={i}>
-                                <ExerciseItem
-                                    {...exercise}
-                                    key={exercise._id}
-                                />
-                            </React.Fragment>
-                        ))}
-                    </Row>
-                </div>
-            </Modal.Body>
-        </Modal>
+        <>
+            {show ? (
+                <>
+                    <div
+                        fullscreen={'md-down'}
+                        tabIndex="-1"
+                        aria-hidden="true"
+                        aria-labelledby={`${WorkoutId}-exercises`}
+                        className="modal"
+                    >
+                        <header className="mb-1 brand">
+                            <h4 className="header-title">Exercises - {WorkoutDay}</h4>
+                            <button className="btn-close" onClick={handleClose} aria-label="Hide">X</button>
+                        </header>
+                        <div className="modal-body">
+                            <div className="container">
+                                <div className="grid-rows-1">
+                                    {exerciseItems.length <= 1 && <Spinner />}
+                                    {exerciseItems.map((exercise, i) => (
+                                        <React.Fragment key={i}>
+                                            <ExerciseItem
+                                                {...exercise}
+                                                key={exercise._id}
+                                            />
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            ) : null}
+        </>
     );
 }
 

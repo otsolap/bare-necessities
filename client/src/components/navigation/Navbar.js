@@ -1,5 +1,4 @@
 import React from 'react';
-
 import logo from '../../imgs/Avatar_sm.png'
 
 export default function Nav() {

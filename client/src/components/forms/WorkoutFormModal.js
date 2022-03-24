@@ -1,10 +1,6 @@
 
 import React, { useRef } from 'react';
 import { useDispatch, useWorkouts } from '../../contexts/workouts.context';
-import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import CloseButton from 'react-bootstrap/CloseButton'
 import { Days, Types } from '../../util/defaultOptions'
 import '../../styles/Workouts.css'
 
