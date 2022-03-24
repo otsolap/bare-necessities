@@ -1,9 +1,5 @@
 import React, { useRef } from 'react';
 import { useDispatch, useWorkouts } from '../../contexts/workouts.context';
-import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import CloseButton from 'react-bootstrap/CloseButton'
 import '../../styles/Workouts.css'
 
 export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay, id }) {
@@ -49,76 +45,85 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay,
                         id={id}
                         tabIndex="-1"
                         aria-hidden="true"
-                        className="modal modal-background"
+                        aria-labelledby={id}
+                        className="modal-background modal"
                     >
-                        <Modal.Header className="mb-1 brand">
-                            <Modal.Title className="header-title" >Add Exercise for {WorkoutDay}</Modal.Title>
-                            <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form onSubmit={handleSubmit}   >
-                                <Form.Group controlId="move">
-                                    <Form.Label>
+                        <header className="mb-1 brand">
+                            <button onClick={handleClose} aria-label="hide">X</button>
+                            <h2 className="header-title" >Add Exercise for {WorkoutDay}</h2>
+                        </header>
+                        <div className="modal-body">
+                            <form onSubmit={handleSubmit}   >
+                                <div className="container">
+                                    <label className="mb-1" for="move">
                                         Move
-                                    </Form.Label>
-                                    <Form.Control
+                                    </label>
+                                    <input
+                                        className="mb-1 form-input"
                                         required
+                                        id="move"
                                         name="move"
                                         ref={moveRef}
-                                        className='mb-1'
                                     />
-                                </Form.Group>
-                                <Form.Group controlId="reps">
-                                    <Form.Label>
+                                </div>
+                                <div className="container">
+                                    <label className="mb-1" for="reps">
                                         Rep range
-                                    </Form.Label>
-                                    <Form.Control
+                                    </label>
+                                    <input
+                                        className="mb-1 form-input"
                                         required
+                                        id="reps"
                                         name="reps"
                                         ref={repsRef}
-                                        className="mb-1"
                                     />
-                                </Form.Group>
-                                <Form.Group controlId="exerciseImg">
-                                    <Form.Label>
+                                </div>
+                                <div className="container">
+                                    <label className="mb-1" for="exerciseImg">
                                         Image
-                                    </Form.Label>
-                                    <Form.Control
+                                    </label>
+                                    <input
+                                        className="mb-1 form-input"
+                                        id="exerciseImg"
                                         name="exerciseImg"
                                         ref={imgRef}
-                                        className="mb-1"
                                     />
-                                </Form.Group>
-                                <Form.Group controlId="exerciseLink">
-                                    <Form.Label>
+                                </div>
+                                <div className="container">
+                                    <label className="mb-1" for="exerciseLink">
                                         Link
-                                    </Form.Label>
-                                    <Form.Control
+                                    </label>
+                                    <input
+                                        className="mb-1 form-input"
                                         name="exerciseLink"
                                         ref={linkRef}
-                                        className="mb-1"
                                     />
-                                </Form.Group>
-                                <Form.Group>
-                                    <Form.Label>Workout Day</Form.Label>
-                                    <Form.Select
+                                </div>
+                                <div className="container">
+                                    <label className="mb-1" for="workoutDay">
+                                        Workout Day
+                                    </label>
+                                    <select
+                                        id="workoutDay"
                                         defaultValue={WorkoutId}
                                         ref={workoutIdRef}
+                                        className="mb-1 form-input"
                                     >
                                         <option key={WorkoutId} value={WorkoutId}>
                                             {WorkoutDay}
                                         </option>
-                                    </Form.Select>
-                                </Form.Group>
-                                <Button
-                                    variant="outline-success"
-                                    className="mt-3 mb-3"
-                                    type="submit"
-                                >
-                                    Add Exercise
-                                </Button>
-                            </Form>
-                        </Modal.Body>
+                                    </select>
+                                </div>
+                                <div className="container">
+                                    <button
+                                        className="btn-inverse mt-3 mb-3"
+                                        type="submit"
+                                    >
+                                        Add Exercise
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </>
             ) : null}

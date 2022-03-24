@@ -1,12 +1,15 @@
 /* Modals */
-
 .modal {
-	@apply flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+	@apply fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto;
 }
 
 .modal-background,
 .modal-body {
 	@apply bg-black;
+}
+
+.modal-body {
+	@apply flex flex-col w-full content-center;
 }
 
 .header-title {
