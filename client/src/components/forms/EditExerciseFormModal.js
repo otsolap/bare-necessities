@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useWorkouts, useDispatch } from '../../contexts/workouts.context';
 
-
 function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) {
     const { dispatchExercise } = useDispatch()
     const { editExercise } = useWorkouts()
@@ -90,8 +89,8 @@ function EditExerciseFormModal({ id, move, reps, image, link, toggleEditForm }) 
             </div>
             <div className="container">
                 <button
-                    variant="outline-success"
-                    className="btn mt-3 mb-3"
+                    variant="btn-inverse"
+                    className="btn my-4 mx-2"
                     type="submit"
                 >
                     Update Exercise

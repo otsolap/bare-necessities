@@ -116,7 +116,7 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay,
                                 </div>
                                 <div className="container">
                                     <button
-                                        className="btn-inverse mt-3 mb-3"
+                                        className="btn-inverse my-4 mx-2"
                                         type="submit"
                                     >
                                         Add Exercise

@@ -24,14 +24,14 @@
 }
 
 /* Exercises */
-.exercise-item {
+.card-item {
 	@apply relative flex flex-col border-white rounded break-words;
 }
 
-.exercise-item-header {
+.card-item-header {
 	@apply px-2 py-4 mb-0 border-b-2;
 }
 
-.exercise-item-body {
+.card-item-body {
 	@apply flex p-4;
 }

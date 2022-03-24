@@ -1,12 +1,9 @@
 import React, { memo } from 'react';
 import { useDispatch } from '../../contexts/workouts.context'
 import useToggle from '../../hooks/useToggleState';
-import '../../styles/Workouts.css';
 import EditExerciseFormModal from '../forms/EditExerciseFormModal'
-import Form from 'react-bootstrap/Form'
-import Image from 'react-bootstrap/Image'
-import Card from 'react-bootstrap/Card'
 import SwitchToggle from '../../util/SwitchToggle';
+import '../../styles/Workouts.css';
 
 
 function Exercise({ _id, move, reps, image, link, completed }) {
@@ -36,13 +33,13 @@ function Exercise({ _id, move, reps, image, link, completed }) {
                     toggleEditForm={toggle}
                 />) : (
                 <>
-                    <article className="exercise-item bg-primary">
-                        <header className="exercise-item-header">
-                            {image ? <div className="border border-white"><Image fluid src={image} alt={move} /> </div> : ""}
+                    <article className="card-item bg-primary">
+                        <header className="card-item-header">
+                            {image ? <div className="border border-white"><img className="object-cover  w-full" fluid src={image} alt={move} /> </div> : ""}
                             <p><em>Move: </em> {link ? <a href={link} rel="noopener noreferrer" target="_blank">{move} </a> : <span>{move} </span>}</p>
                             <p><em>Reps: </em>{reps}</p>
                         </header>
-                        <div className="exercise-item-body">
+                        <div className="card-item-body">
                             <form>
                                 <label>
                                     Exercise Done
@@ -54,8 +51,8 @@ function Exercise({ _id, move, reps, image, link, completed }) {
                                 />
                             </form>
                             <div className="container">
+                                <button className="btn-inverse" onClick={toggle}> Edit Exercise </button>
                             </div>
-                            <button onClick={toggle}> Edit Exercise </button>
                         </div>
                     </article>
                 </>

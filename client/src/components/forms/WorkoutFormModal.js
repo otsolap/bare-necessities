@@ -101,7 +101,7 @@ export default function WorkoutForm({ show, handleClose }) {
                                 <button
                                     form="workout-form"
                                     variant="success"
-                                    className="btn mt-3 mb-3"
+                                    className="btn my-4 mx-2"
                                     type="submit"
                                 >
                                     Add Workout

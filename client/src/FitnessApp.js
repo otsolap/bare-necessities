@@ -4,7 +4,7 @@ import Navbar from './components/navigation/Navbar';
 import WorkoutFormModal from './components/forms/WorkoutFormModal';
 import WorkoutList from './components/workouts/WorkoutList';
 import Footer from './components/navigation/Footer'
-import Button from "react-bootstrap/Button"
+
 
 function FitnessApp() {
   const [showWorkoutForm, toggleShowWorkoutForm] = useToggle(false)
@@ -12,11 +12,11 @@ function FitnessApp() {
   return (
     <>
       <Navbar />
-      <Button
-        variant="success"
+      <button
+        className="btn"
         onClick={toggleShowWorkoutForm}>
         Add Workout
-      </Button>
+      </button>
       <WorkoutList />
       <WorkoutFormModal
         show={showWorkoutForm}

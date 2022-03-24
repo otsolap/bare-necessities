@@ -1,9 +1,6 @@
 import React, { memo } from 'react';
 import { useDispatch } from '../../contexts/workouts.context';
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import SwitchToggle from '../../util/SwitchToggle';
 import '../../styles/Workouts.css'
 
 
@@ -19,34 +16,33 @@ function Workout({ _id, completed, workoutType, workoutDay, onViewExercisesClick
     }
 
     return (
-        <Col sm={12} md={4} className="my-3">
-            <Card
-                className="bg-primary border border-white text-center">
-                <Card.Header>
-                    <Card.Text><em>Day:</em>{workoutDay}</Card.Text>
-                    <Card.Text> <em>Type:</em>{workoutType}</Card.Text>
-                </Card.Header>
-                <Card.Body>
-                    <Button variant="light" onClick={onViewExercisesClick}>
+        <div className="columns-1 md:columns-4 my-3">
+            <article
+                className="card-item bg-primary border border-white text-center">
+                <header className="card-item-header">
+                    <p><em>Day:</em>{workoutDay}</p>
+                    <p> <em>Type:</em>{workoutType}</p>
+                </header>
+                <div className='card-item-body'>
+                    <button className="btn" onClick={onViewExercisesClick}>
                         View Exercises
-                    </Button>
-                    <Button variant="outline-light" onClick={onAddExercisesClick}>
+                    </button>
+                    <button className="btn" onClick={onAddExercisesClick}>
                         Add Exercise
-                    </Button>
-                    <Form>
-                        <Form.Check.Label>
+                    </button>
+                    <form>
+                        <label>
                             Workout Done
-                        </Form.Check.Label>
-                        <Form.Check
-                            type="switch"
+                        </label>
+                        <SwitchToggle
                             id={_id}
                             checked={completed}
                             onClick={toggleWorkout}
                         />
-                    </Form>
-                </Card.Body>
-            </Card>
-        </Col>
+                    </form>
+                </div>
+            </article>
+        </div>
     );
 }
 
