@@ -56,54 +56,65 @@ export default function WorkoutForm({ show, handleClose }) {
     }
 
     return (
-        <Modal
-            fullscreen={'md-down'}
-            className="modal-background"
-            show={show}>
-            <Modal.Header className="brand">
-                <Modal.Title className="header-title">Add Workout</Modal.Title>
-                <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
-            </Modal.Header>
-            <Modal.Body>
-                <Form id="workout-form" onSubmit={handleSubmit}>
-                    <Form.Group controlId="workoutDay">
-                        <Form.Label>
-                            Day
-                        </Form.Label>
-                        <Form.Select
-                            required
-                            name="workoutDay"
-                            ref={dayRef}
-                            className='mb-1'
-                        >
-                            <option hidden>Choose Day</option>
-                            {dayOptions}
-                        </Form.Select>
-                    </Form.Group>
-                    <Form.Group controlId="workoutType">
-                        <Form.Label>
-                            Workout type
-                        </Form.Label>
-                        <Form.Select
-                            name="workoutType"
-                            ref={typeRef}
-                            className="mb-1"
-                        >
-                            <option hidden>Choose Type</option>
-                            {workoutTypes}
-                        </Form.Select>
-                    </Form.Group>
-                </Form>
-                <Button
-                    form="workout-form"
-                    variant="success"
-                    className="mt-3 mb-3"
-                    type="submit"
-                >
-                    Add Workout
-                </Button>
-            </Modal.Body>
-
-        </Modal>
+        <>
+            {show ? (
+                <>
+                    <div
+                        tabIndex="-1"
+                        aria-hidden="true"
+                        aria-labelledby="workoutModal"
+                        className="modal"
+                    >
+                        <header className="modal-header brand">
+                            <button className="btn-close" onClick={handleClose} aria-label="Hide">X</button>
+                            <h4 className="header-title">Add Workout</h4>
+                        </header>
+                        <div className="modal-body">
+                            <form id="workout-form" onSubmit={handleSubmit}>
+                                <div className="container">
+                                    <label for="workoutDay">
+                                        Day
+                                    </label>
+                                    <select
+                                        required
+                                        id="workoutDay"
+                                        name="workoutDay"
+                                        ref={dayRef}
+                                        className='mb-1 form-input'
+                                    >
+                                        <option hidden>Choose Day</option>
+                                        {dayOptions}
+                                    </select>
+                                </div>
+                                <div className="container">
+                                    <label for="workoutType">
+                                        Workout type
+                                    </label>
+                                    <select
+                                        id="workoutType"
+                                        name="workoutType"
+                                        ref={typeRef}
+                                        className="mb-1 form-input"
+                                    >
+                                        <option hidden>Choose Type</option>
+                                        {workoutTypes}
+                                    </select>
+                                </div>
+                            </form>
+                            <div className="container">
+                                <button
+                                    form="workout-form"
+                                    variant="success"
+                                    className="btn mt-3 mb-3"
+                                    type="submit"
+                                >
+                                    Add Workout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            ) : null}
+        </>
     );
 }

@@ -1,11 +1,18 @@
 /* Modals */
 .modal {
-	@apply fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto;
+	@apply bg-black fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto;
 }
 
-.modal-background,
+.modal-header {
+	@apply flex content-center justify-between p-1 border-b-0 border-white rounded-tl rounded-tr;
+}
+
+.header-title {
+	@apply leading-6 mb-0;
+}
+
 .modal-body {
-	@apply bg-black;
+	@apply relative flex p-4 bg-black;
 }
 
 .modal-body {

@@ -34,8 +34,8 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
             show={show}
         >
             <Modal.Header className="mb-1 brand">
-                <Modal.Title className="header-title">Exercises - {WorkoutDay}</Modal.Title>
-                <CloseButton onClick={handleClose} variant="white" aria-label="Hide" />
+                <h4 className="header-title">Exercises - {WorkoutDay}</h4>
+                <button className="btn-close" onClick={handleClose} aria-label="Hide">X</button>
             </Modal.Header>
             <Modal.Body>
                 <div className="container">

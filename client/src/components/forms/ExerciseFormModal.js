@@ -46,11 +46,11 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay,
                         tabIndex="-1"
                         aria-hidden="true"
                         aria-labelledby={id}
-                        className="modal-background modal"
+                        className="modal"
                     >
-                        <header className="mb-1 brand">
-                            <button onClick={handleClose} aria-label="hide">X</button>
-                            <h2 className="header-title" >Add Exercise for {WorkoutDay}</h2>
+                        <header className="modal-header mb-1 brand">
+                            <button className="btn-close" onClick={handleClose} aria-label="hide">X</button>
+                            <h4 className="header-title" >Add Exercise for {WorkoutDay}</h4>
                         </header>
                         <div className="modal-body">
                             <form onSubmit={handleSubmit}   >
