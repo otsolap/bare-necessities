@@ -51,7 +51,7 @@ function Exercise({ _id, move, reps, image, link, completed }) {
                                 />
                             </form>
                             <div className="container">
-                                <button className="btn-inverse" onClick={toggle}> Edit Exercise </button>
+                                <button className="btn-inverse my-4" onClick={toggle}> Edit Exercise </button>
                             </div>
                         </div>
                     </article>

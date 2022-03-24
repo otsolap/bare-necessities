@@ -16,7 +16,7 @@ function Workout({ _id, completed, workoutType, workoutDay, onViewExercisesClick
     }
 
     return (
-        <div className="columns-1 md:columns-4 my-3">
+        <div className="columns-1 my-3">
             <article
                 className="card-item bg-primary border border-white text-center">
                 <header className="card-item-header">
@@ -24,12 +24,14 @@ function Workout({ _id, completed, workoutType, workoutDay, onViewExercisesClick
                     <p> <em>Type:</em>{workoutType}</p>
                 </header>
                 <div className='card-item-body'>
-                    <button className="btn" onClick={onViewExercisesClick}>
-                        View Exercises
-                    </button>
-                    <button className="btn" onClick={onAddExercisesClick}>
-                        Add Exercise
-                    </button>
+                    <div className="flex flex-col my-2">
+                        <button className="btn my-1" onClick={onViewExercisesClick}>
+                            View Exercises
+                        </button>
+                        <button className="btn my-1" onClick={onAddExercisesClick}>
+                            Add Exercise
+                        </button>
+                    </div>
                     <form>
                         <label>
                             Workout Done

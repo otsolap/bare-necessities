@@ -13,7 +13,7 @@ function FitnessApp() {
     <>
       <Navbar />
       <button
-        className="btn"
+        className="btn m-4"
         onClick={toggleShowWorkoutForm}>
         Add Workout
       </button>

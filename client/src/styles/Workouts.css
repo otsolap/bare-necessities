@@ -25,7 +25,7 @@
 
 /* Exercises */
 .card-item {
-	@apply relative flex flex-col border-white rounded break-words;
+	@apply relative flex flex-col border-white rounded break-words md:flex-auto;
 }
 
 .card-item-header {
@@ -33,5 +33,5 @@
 }
 
 .card-item-body {
-	@apply flex p-4;
+	@apply flex-auto p-4;
 }
