@@ -1,23 +1,22 @@
 import React from 'react'
+import '../FitnessApp.css'
 
 const SwitchToggle = ({ id, checked, toggleExercise }) => {
     return (
-        <div className="flex justify-center mb-1">
-            <div className="form-check form-switch">
+        <>
+            <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                 <input
-                    className="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain  focus:outline-none cursor-pointer"
                     type="checkbox"
-                    role="switch"
+                    name={id}
                     id={id}
                     checked={checked}
                     onClick={toggleExercise}
-                />
+                    className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" />
                 <label
-                    className="form-check-label inline-block text-black"
-                    for="flexSwitchCheckDefault">
-                </label>
+                    for={id}
+                    className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
             </div>
-        </div>
+        </>
     )
 }
 
