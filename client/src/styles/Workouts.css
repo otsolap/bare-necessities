@@ -1,6 +1,6 @@
 /* Modals */
 .modal {
-	@apply bg-black fixed top-0 left-0 w-full h-full outline-none overflow-x-hidden overflow-y-auto;
+	@apply bg-black fixed top-0 left-0 right-0 outline-none overflow-x-hidden overflow-y-auto z-50;
 }
 
 .modal-header {
@@ -12,11 +12,11 @@
 }
 
 .modal-body {
-	@apply relative flex p-4 bg-black;
+	@apply relative h-auto flex p-4 bg-black;
 }
 
 .modal-body {
-	@apply flex flex-col w-full content-center;
+	@apply flex justify-center w-full content-center;
 }
 
 .header-title {

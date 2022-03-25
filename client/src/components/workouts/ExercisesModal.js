@@ -29,7 +29,6 @@ function ExerciseModal({ show, handleClose, WorkoutDay, WorkoutId }) {
             {show ? (
                 <>
                     <div
-                        fullscreen={'md-down'}
                         tabIndex="-1"
                         aria-hidden="true"
                         aria-labelledby={`${WorkoutId}-exercises`}
