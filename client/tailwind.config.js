@@ -11,6 +11,12 @@ module.exports = {
       },
       fontFamily: {
         primary: ['Hind Guntur', 'sans-serif']
+      },
+      maxWidth: {
+        half: '50%',
+      },
+      flex: {
+        half: '0 0 50%',
       }
     },
   },
