@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Exercises } from '../../util/defaultOptions';
 import { useDispatch, useWorkouts } from '../../contexts/workouts.context';
 import '../../styles/Workouts.css'
 
@@ -10,6 +11,14 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay,
     const imgRef = useRef()
     const linkRef = useRef()
     const workoutIdRef = useRef()
+
+    const exerciseMoves = Exercises.map((exercise) => {
+        return (
+            <option key={exercise} value={exercise}>
+                {exercise}
+            </option>
+        )
+    })
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -49,8 +58,8 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay,
                         className="modal"
                     >
                         <header className="modal-header mb-1 brand">
-                            <button className="btn-close" onClick={handleClose} aria-label="hide">X</button>
                             <h4 className="header-title" >Add Exercise for {WorkoutDay}</h4>
+                            <button className="btn-close" onClick={handleClose} aria-label="hide">X</button>
                         </header>
                         <div className="modal-body">
                             <form onSubmit={handleSubmit}   >
@@ -58,13 +67,16 @@ export default function ExerciseForm({ show, handleClose, WorkoutId, WorkoutDay,
                                     <label className="mb-1" for="move">
                                         Move
                                     </label>
-                                    <input
+                                    <select
                                         className="mb-1 form-input"
                                         required
                                         id="move"
                                         name="move"
                                         ref={moveRef}
-                                    />
+                                    >
+                                        <option hidden>Choose Type</option>
+                                        {exerciseMoves}
+                                    </select>
                                 </div>
                                 <div className="container">
                                     <label className="mb-1" for="reps">

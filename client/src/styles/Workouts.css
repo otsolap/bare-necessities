@@ -1,37 +1,81 @@
 /* Modals */
 .modal {
-	@apply bg-black fixed top-0 left-0 right-0 outline-none overflow-x-hidden overflow-y-auto z-50;
+	@apply bg-black;
+	@apply fixed;
+	@apply outline-none;
+	@apply overflow-x-hidden;
+	@apply overflow-y-auto;
+	@apply z-50;
+	@apply mx-auto;
+	@apply max-w-2xl;
+	@apply top-1/3;
+	@apply right-0;
+	@apply left-0;
+	@apply bottom-0; 
 }
 
 .modal-header {
-	@apply flex content-center justify-between p-1 border-b-0 border-white rounded-tl rounded-tr;
+	@apply flex; 
+	@apply content-center;
+	@apply justify-between;
+	@apply p-1;
+	@apply border-b-0;
+	@apply border-white;
+	@apply rounded-tl;
+	@apply rounded-tr;
 }
 
 .header-title {
-	@apply leading-6 mb-0;
+	@apply leading-6; 
+	@apply mb-0;
 }
 
 .modal-body {
-	@apply relative h-auto flex p-4 bg-black;
+	@apply relative;
+	@apply h-auto;
+	@apply flex;
+	@apply p-4;
+	@apply bg-black;
+	@apply border-white;
+	@apply border;
+	@apply border-t-transparent;
 }
 
 .modal-body {
-	@apply flex justify-center w-full content-center;
+	@apply flex;
+	@apply justify-center;
+	@apply w-full;
+	@apply content-center;
 }
 
 .header-title {
-	@apply text-center w-full;
+	@apply text-center; 
+	@apply w-full;
+}
+
+.btn-container {
+	@apply -ml-2;
 }
 
 /* Exercises */
 .card-item {
-	@apply relative flex flex-col border-white rounded break-words md:flex-auto;
+	@apply relative; 
+	@apply flex;
+	@apply flex-col;
+	@apply border-white;
+	@apply rounded;
+	@apply break-words;
+	@apply md:flex-auto;
 }
 
 .card-item-header {
-	@apply px-2 py-4 mb-0 border-b-2;
+	@apply px-2; 
+	@apply py-4;
+	@apply mb-0;
+	@apply border-b-2;
 }
 
 .card-item-body {
-	@apply flex-auto p-4;
+	@apply flex-auto; 
+	@apply p-4;
 }

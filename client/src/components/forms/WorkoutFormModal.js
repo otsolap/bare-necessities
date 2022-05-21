@@ -62,8 +62,8 @@ export default function WorkoutForm({ show, handleClose }) {
                         className="modal"
                     >
                         <header className="modal-header brand">
-                            <button className="btn-close" onClick={handleClose} aria-label="Hide">X</button>
                             <h4 className="header-title">Add Workout</h4>
+                            <button className="btn-close" onClick={handleClose} aria-label="Hide">X</button>
                         </header>
                         <div className="modal-body">
                             <form id="workout-form" onSubmit={handleSubmit}>
@@ -96,17 +96,17 @@ export default function WorkoutForm({ show, handleClose }) {
                                         {workoutTypes}
                                     </select>
                                 </div>
+                                <div className="btn-container">
+                                    <button
+                                        form="workout-form"
+                                        variant="success"
+                                        className="btn my-4 mx-2"
+                                        type="submit"
+                                    >
+                                        Add Workout
+                                    </button>
+                                </div>
                             </form>
-                            <div className="container">
-                                <button
-                                    form="workout-form"
-                                    variant="success"
-                                    className="btn my-4 mx-2"
-                                    type="submit"
-                                >
-                                    Add Workout
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </>
