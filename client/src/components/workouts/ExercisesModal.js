@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/Workouts.css';
+import '../../styles/Workouts.scss';
 import { useWorkouts } from '../../contexts/workouts.context'
 import ExerciseItem from './ExerciseItem';
 import Spinner from '../../util/Spinner'

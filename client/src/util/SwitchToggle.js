@@ -1,5 +1,5 @@
 import React from 'react'
-import '../FitnessApp.css'
+import '../FitnessApp.scss'
 
 const SwitchToggle = ({ id, checked, toggleExercise }) => {
     return (

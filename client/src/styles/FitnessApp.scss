@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@300;400;500;600;700&display=swap');
+@import "partials/mixins";
+@import "partials/variables";
+@import "partials/breakpoints";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+	width: 100%;
+	font-family: 'Hind Guntur', sans-serif;
+	background-color: $black;
+	color: $white;
+}
+
+.brand {
+	background-color: $primary;
+	color: $white;
+}
+
+.btn {
+	background-color: $green;
+	color: $white;
+	font-weight: 700;
+	border-radius: 0.25rem/* 4px */;
+	padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+	padding-left: 1rem/* 16px */;
+    padding-right: 1rem/* 16px */;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $blue;
+	}
+}
+
+.btn-inverse {
+	background-color: transparent;
+	color: $white;
+	@include border(2px solid  $green);
+	font-weight: 700;
+	border-radius: 0.25rem/* 4px */;
+	padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+	padding-left: 1rem/* 16px */;
+    padding-right: 1rem/* 16px */;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	transition-duration: 200ms;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $green;
+	}
+}
+
+.btn-close {
+	cursor: pointer;
+	width: 1rem/* 16px */;
+	height: 1rem/* 16px */;
+	color: $white;
+	background-color: transparent;
+	border-width: 0px;
+	opacity: 0.5;
+}
+
+.form-input {
+	color: $black;
+	width: 100%;
+	padding-top: 0.25rem/* 4px */;
+    padding-bottom: 0.25rem/* 4px */;
+	padding-left: 0.25rem/* 4px */;
+    padding-right: 0.25rem/* 4px */;
+	background-color: $white;
+	@include border(1px solid);
+	border-right: 2px;
+}
+
+/* Toggle Btn */
+
+.toggle-checkbox:checked {
+	right: 0;
+	border-color: $light-green;
+}
+.toggle-checkbox:checked + .toggle-label {
+	background-color: $light-green;
+}

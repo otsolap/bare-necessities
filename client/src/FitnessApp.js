@@ -1,4 +1,4 @@
-import './FitnessApp.css';
+import './styles/FitnessApp.scss';
 import useToggle from './hooks/useToggleState'
 import Navbar from './components/navigation/Navbar';
 import WorkoutFormModal from './components/forms/WorkoutFormModal';

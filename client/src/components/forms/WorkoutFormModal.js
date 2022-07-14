@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import { useDispatch, useWorkouts } from '../../contexts/workouts.context';
 import { Days, Types } from '../../util/defaultOptions'
-import '../../styles/Workouts.css'
+import '../../styles/Workouts.scss'
 
 
 export default function WorkoutForm({ show, handleClose }) {
